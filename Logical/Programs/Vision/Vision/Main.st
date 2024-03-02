@@ -237,7 +237,7 @@ PROGRAM _CYCLIC
 				
 		//-------------------------------------------------------------------------
 		
-		this.ioTrigger(CLK := hw.io.in.commonTrigger OR hw.io.in.individualTrigger);
+		this.ioTrigger(CLK := hw.io.in.commonTrigger OR NOT hw.io.in.individualTrigger);
 		this.repetitiveTriggerTON.IN := hmi.in.recipe.repetitiveTrigger;
 		this.repetitiveTriggerTON.PT := UDINT_TO_TIME(hmi.in.recipe.repetitiveTriggerInterval);
 		this.repetitiveTriggerTON();
@@ -265,7 +265,7 @@ PROGRAM _CYCLIC
 			ELSIF hmi.in.recipe.enableIoTrigger AND this.ioTrigger.Q THEN
 				
 				this.brdkViBase_imgTrigger_0.trigger := TRUE;
-				this.brdkViBase_imgTrigger_0.delayNettime := gAxis.status.nettime + hmi.in.recipe.ioTriggerDelay ; // Use time calculated in Axis program
+				this.brdkViBase_imgTrigger_0.delayNettime :=  hw.io.in.nettime + hmi.in.recipe.ioTriggerDelay ; // Use time calculated in Axis program
 				
 			ELSIF this.currentTriggerNum < hmi.in.recipe.multiCaptureNum AND NOT hmi.in.recipe.repetitiveTrigger THEN
 			
