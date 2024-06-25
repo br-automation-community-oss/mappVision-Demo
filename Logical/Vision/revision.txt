@@ -1,9 +1,12 @@
+Version 5.26.3 (25.06.2024)
+- Fixed artefacts in main page image when no camera image was loaded
+
 Version 5.26.2 (10.06.2024)
 - Optimized image download
 - General code optimizations
 
 Version 5.26.1
-- Update to mappVision 4.26
+- Update to mappVision 5.26
 - Changed image request to official function block
 - Removed recipe management
 - Removed color detection
