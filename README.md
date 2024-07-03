@@ -37,6 +37,10 @@ Recommended task class is #8 with a 10ms cycle time. For the nettime and axis ta
 ## Revision History
 You can find details in the project in "revision.txt"
 
+#### Version 5.26.3 (03.07.2024)
+- Fixed artefacts in main page image when no camera image was loaded
+- Use vision sensor resolution from config to account for cameras with higher resolution
+
 #### Version 5.26.2 (10.06.2024)
 - Optimized image download
 - General code optimizations
