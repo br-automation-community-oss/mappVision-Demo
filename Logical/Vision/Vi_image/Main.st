@@ -353,7 +353,13 @@ PROGRAM _CYCLIC
 		// -----------------------------------------------------------------------------------------------------------
 		VISTEP_REQUEST3:		
 			brsmemset(ADR(visCameraImage), 0, SIZEOF(visCameraImage));
-			visCameraImage := '<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1280px" height="1024px" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="nonzero" clip-rule="evenodd" viewBox="0 0 1280 1024" xmlns:xlink="http://www.w3.org/1999/xlink"><image xlink:href="data:image/';
+			visCameraImage := '<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1280px" height="1024px" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="nonzero" clip-rule="evenodd" viewBox="0 0 ';	
+			brsitoa(gVisionImage.CFG.ImageWidth, ADR(tmpStr));
+			brsstrcat(ADR(visCameraImage), ADR(tmpStr));
+			brsstrcat(ADR(visCameraImage), ADR(' '));
+			brsitoa(gVisionImage.CFG.ImageHeight, ADR(tmpStr));
+			brsstrcat(ADR(visCameraImage), ADR(tmpStr));
+			brsstrcat(ADR(visCameraImage), ADR('" xmlns:xlink="http://www.w3.org/1999/xlink"><image xlink:href="data:image/'));
 			IF ViBaseGetImage_0.Type = viBASE_IMAGE_TYPE_JPG THEN
 				brsstrcat(ADR(visCameraImage), ADR('jpeg'));
 			ELSIF ViBaseGetImage_0.Type = viBASE_IMAGE_TYPE_BMP THEN

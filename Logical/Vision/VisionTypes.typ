@@ -186,6 +186,8 @@ TYPE
 		FileName : STRING[80];
 		DirName : STRING[80];
 		ImageQuality : USINT := 50;
+		ImageHeight : UINT := 1280;
+		ImageWidth : UINT := 1024;
 		ImageType : ViBaseImageTypeEnum;
 		ComponentLink : ViComponentType;
 	END_STRUCT;

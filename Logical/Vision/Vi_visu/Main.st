@@ -169,6 +169,8 @@ PROGRAM _CYCLIC
 	// -----------------------------------------------------------------------------------------------------------
 	IF EDGENEG(VisionSensor.CMD.ImageTrigger) THEN
 		gVisionImage.CFG.ComponentLink := gVisionSensor[gSelectedSensor].CFG.ComponentLink;
+		gVisionImage.CFG.ImageHeight := gVisionSensor[gSelectedSensor].CFG.ResolutionHeight;
+		gVisionImage.CFG.ImageWidth := gVisionSensor[gSelectedSensor].CFG.ResolutionWidth;
 		gVisionImage.CMD.GetImage := TRUE;
 	END_IF
 
@@ -300,26 +302,26 @@ PROGRAM _CYCLIC
 				CASE VisionSensor.CFG.VisionFunction OF
 					enumBlob:
 						CrosshairModelNumber := gBlob.ModelNumber[i];
-						CrosshairPositionX := UDINT_TO_REAL(gBlob.PositionX[i]);    
-						CrosshairPositionY := UDINT_TO_REAL(gBlob.PositionY[i]);    
+						CrosshairPositionX := UDINT_TO_REAL(gBlob.PositionX[i])/UINT_TO_REAL(gVisionSensor[gSelectedSensor].CFG.ResolutionWidth)*1280;    
+						CrosshairPositionY := UDINT_TO_REAL(gBlob.PositionY[i])/UINT_TO_REAL(gVisionSensor[gSelectedSensor].CFG.ResolutionHeight)*1024;    
 						CrosshairOrientation := gBlob.Orientation[i];
 					enumMatch:
-						CrosshairModelNumber := gMatch.ModelNumber[i]; 
-						CrosshairPositionX := UDINT_TO_REAL(gMatch.PositionX[i]);    
-						CrosshairPositionY := UDINT_TO_REAL(gMatch.PositionY[i]);    
+						CrosshairModelNumber := gMatch.ModelNumber[i];
+						CrosshairPositionX := UDINT_TO_REAL(gMatch.PositionX[i])/UINT_TO_REAL(gVisionSensor[gSelectedSensor].CFG.ResolutionWidth)*1280;    
+						CrosshairPositionY := UDINT_TO_REAL(gMatch.PositionY[i])/UINT_TO_REAL(gVisionSensor[gSelectedSensor].CFG.ResolutionHeight)*1024;    
 						CrosshairOrientation := gMatch.Orientation[i];
 					enumCoderReader:
-						CrosshairPositionX := UDINT_TO_REAL(gCodeReader.PositionX[i]);    
-						CrosshairPositionY := UDINT_TO_REAL(gCodeReader.PositionY[i]);    
+						CrosshairPositionX := UDINT_TO_REAL(gCodeReader.PositionX[i])/UINT_TO_REAL(gVisionSensor[gSelectedSensor].CFG.ResolutionWidth)*1280;    
+						CrosshairPositionY := UDINT_TO_REAL(gCodeReader.PositionY[i])/UINT_TO_REAL(gVisionSensor[gSelectedSensor].CFG.ResolutionWidth)*1280;    
 						CrosshairOrientation := gCodeReader.Orientation[i];
 					enumOCR:
-						CrosshairPositionX := UDINT_TO_REAL(gOCR.PositionX[i]);    
-						CrosshairPositionY := UDINT_TO_REAL(gOCR.PositionY[i]);    
+						CrosshairPositionX := UDINT_TO_REAL(gOCR.PositionX[i])/UINT_TO_REAL(gVisionSensor[gSelectedSensor].CFG.ResolutionWidth)*1280;    
+						CrosshairPositionY := UDINT_TO_REAL(gOCR.PositionY[i])/UINT_TO_REAL(gVisionSensor[gSelectedSensor].CFG.ResolutionWidth)*1280;    
 						CrosshairOrientation := gOCR.Orientation[i];
 					enumMeasurement:
 						IF(gMT.UseResultAsXY = TRUE) THEN
-							CrosshairPositionX := UDINT_TO_REAL(gMT.Result[i])/10;    
-							CrosshairPositionY := UDINT_TO_REAL(gMT.Result[i+1])/10;
+							CrosshairPositionX := UDINT_TO_REAL(gMT.Result[i])/10/UINT_TO_REAL(gVisionSensor[gSelectedSensor].CFG.ResolutionWidth)*1280;    
+							CrosshairPositionY := UDINT_TO_REAL(gMT.Result[i+1])/10/UINT_TO_REAL(gVisionSensor[gSelectedSensor].CFG.ResolutionWidth)*1280;
 							i := i + 1;
 						END_IF
 				END_CASE
