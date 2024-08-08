@@ -20,7 +20,7 @@
       <Selector ID="Deployment" Value="DeploymentPLC" />
     </Group>
     <Group ID="OpcUa">
-      <Property ID="ServerConnectionTimeout" Value="5000" />
+      <Property ID="ServerConnectionTimeout" Value="15000" />
       <Group ID="SamplingRates">
         <Property ID="default" Value="200" />
         <Property ID="slow" Value="1000" />
