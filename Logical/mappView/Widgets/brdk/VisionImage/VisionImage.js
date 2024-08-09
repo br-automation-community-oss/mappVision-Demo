@@ -312,42 +312,47 @@ define([
 
 	
 	p._wsConnect = function(){
-	console.log("VisionImage: Trying to connect to "+this.settings.PLCWebsocketPort+"...");
-	this.wsConnectRetry = false;
-	this.socket = new WebSocket('ws://'+window.location.hostname+':'+this.settings.PLCWebsocketPort);
-	this.socket.binaryType = "arraybuffer";
-	this.socket.onopen = function(event){console.log("VisionImage: Connection established");};
-	this.socket.onmessage = this._onWsMessage.bind(this);
-	this.socket.onerror = this._onWsError.bind(this);
-	this.socket.onclose = function(event) {
-	  if (event.wasClean) {
-		//console.log("[close] Connection closed cleanly, code="+event.code+" reason="+event.reason);
-	  } else {
-		//console.log("[close] Connection died");
-		if(!this.wsConnectRetry){
-			this.wsConnectRetry = true;
-			setTimeout(this.wsConnect, 2000);
-		}
+        console.log("VisionImage: Trying to connect to " + this.settings.PLCWebsocketPort + "...");
+        try {
+            this.wsConnectRetry = false;
+            this.socket = new WebSocket('ws://' + window.location.hostname + ':' + this.settings.PLCWebsocketPort);
+            this.socket.binaryType = "arraybuffer";
+            this.socket.onopen = function (event) { console.log("VisionImage: Connection established"); };
+            this.socket.onmessage = this._onWsMessage.bind(this);
+            this.socket.onerror = this._onWsError.bind(this);
+            this.socket.onclose = function (event) {
+                if (event.wasClean) {
+                    //console.log("[close] Connection closed cleanly, code="+event.code+" reason="+event.reason);
+                } else {
+                    //console.log("[close] Connection died");
+                    if (!this.wsConnectRetry) {
+                        this.wsConnectRetry = true;
+                        setTimeout(this._wsConnect, 2000);
+                    }
 
-	  }
-	};
+                }
+            }.bind(this);
+        } catch (e) {
+            console.error("VisionImage: Error while connecting to PLC websocket: " + e);
+        }
 	};
 	
 	
 	p._onWsError = function(error){
-		//console.log("WS error");
-		this.socket.close();
-		if(!this.wsConnectRetry){
+		 console.error("VisionImage: WebSocket error", error);
+        this.socket.close();
+        if(!this.wsConnectRetry){
 			this.wsConnectRetry = true;
-			setTimeout(this.wsConnect, 2000);
+			setTimeout(this._wsConnect.bind(this), 0);
 		}
 	};
  
 	p._onWsMessage =  function (event) {
+	  try{
 	  var base64string ="";
 	  
 	  if(event.data instanceof ArrayBuffer){
-		// base64string = btoa(String.fromCharCode.apply(null, new Uint8Array(event.data)));
+		 base64string = btoa(String.fromCharCode.apply(null, new Uint8Array(event.data)));
 		// currentElement.src = "data:image/jpeg;base64,"+base64string;
 	  }else{
 		  if(event.data.startsWith("<foreignObject x=") && event.data.endsWith("</foreignObject>")){
@@ -378,6 +383,9 @@ define([
 		// }
 	  }
 	  //console.log("[message] Data received from server:");
+	  }catch(e){
+		  consol.error("message:" +event.data);
+	  }
 	};
 	
 	
