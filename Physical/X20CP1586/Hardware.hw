@@ -2,7 +2,7 @@
 <?AutomationStudio Version=4.12.6.106 FileVersion="4.9"?>
 <Hardware xmlns="http://br-automation.co.at/AS/Hardware">
   <Module Name="Blob" Type="VSC123R21.041P-000" Version="1.10.0.757">
-    <Connection Connector="PLK1" TargetModule="X20CP1586" TargetConnector="IF3" NodeNumber="1">
+    <Connection Connector="PLK1" TargetModule="PLC" TargetConnector="IF3" NodeNumber="1">
       <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
     </Connection>
     <Connection Connector="PLK2" TargetModule="Measurement" TargetConnector="PLK1" NodeNumber="1">
@@ -51,20 +51,7 @@
     <Parameter ID="Supervision" Value="off" />
     <Parameter ID="VisionConfig" Value="gCameraOCR" />
   </Module>
-  <Module Name="PixelCounter" Type="VSS112Q12.023P-000" Version="1.7.0.605">
-    <Connection Connector="PLK1" TargetModule="OCR" TargetConnector="PLK2" NodeNumber="6">
-      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
-    </Connection>
-    <Connection Connector="PLK2" TargetModule="blobBacklight" TargetConnector="PLK1" NodeNumber="6">
-      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
-    </Connection>
-    <Parameter ID="Supervision" Value="off" />
-    <Parameter ID="VisionConfig" Value="gCameraPxl" />
-  </Module>
-  <Module Name="X20BM11" Type="X20BM11" Version="1.1.0.0">
-    <Connection Connector="X2X1" TargetModule="X20CP1586" TargetConnector="IF6" />
-  </Module>
-  <Module Name="X20CP1586" Type="X20CP1586" Version="1.10.0.0">
+  <Module Name="PLC" Type="X20CP1586" Version="1.10.0.0">
     <Connector Name="IF2">
       <Parameter ID="ActivateDevice" Value="1" />
       <Parameter ID="HostName" Value="visiondemo" />
@@ -83,14 +70,14 @@
       <Parameter ID="SubnetMask" Value="255.255.255.0" />
     </Connector>
     <Parameter ID="ConfigurationID" Value="Vision_Sample" />
-    <Parameter ID="ConfigVersion" Value="2.0.0" />
+    <Parameter ID="ConfigVersion" Value="5.24.0" />
     <Parameter ID="UserPartitionSize" Value="260" />
     <Parameter ID="RemMemSize" Value="30000" />
     <Parameter ID="PermanentPvSize" Value="2000" />
     <Parameter ID="RemanentGlobalPvSize" Value="20000" />
     <Parameter ID="VolatileGlobalPvSize" Value="256000" />
     <Parameter ID="TimerDeviceType" Value="EPLX2X" />
-    <Parameter ID="TimerDevice" Value="X20CP1586.IF3" />
+    <Parameter ID="TimerDevice" Value="PLC.IF3" />
     <Parameter ID="TaskClassIdleTime" Value="800" />
     <Parameter ID="Cyclic1Duration" Value="800" />
     <Parameter ID="Cyclic1Tolerance" Value="800" />
@@ -113,6 +100,19 @@
     <Parameter ID="FTPMSpath1" Value="" />
     <Parameter ID="ActivateOpcUa" Value="1" />
     <Parameter ID="OpcUaInformationModels_PV_Version" Value="1" />
+  </Module>
+  <Module Name="PixelCounter" Type="VSS112Q12.023P-000" Version="1.7.0.605">
+    <Connection Connector="PLK1" TargetModule="OCR" TargetConnector="PLK2" NodeNumber="6">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Connection Connector="PLK2" TargetModule="blobBacklight" TargetConnector="PLK1" NodeNumber="6">
+      <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
+    </Connection>
+    <Parameter ID="Supervision" Value="off" />
+    <Parameter ID="VisionConfig" Value="gCameraPxl" />
+  </Module>
+  <Module Name="X20BM11" Type="X20BM11" Version="1.1.0.0">
+    <Connection Connector="X2X1" TargetModule="PLC" TargetConnector="IF6" />
   </Module>
   <Module Name="X20DI9371" Type="X20DI9371" Version="1.4.0.0">
     <Connection Connector="SS1" TargetModule="X20TB12" TargetConnector="SS" />

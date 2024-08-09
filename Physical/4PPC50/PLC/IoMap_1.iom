@@ -1,0 +1,10 @@
+VAR_CONFIG
+	Cyclic#1.::Vision1:hwInstance[1].io.in.nettime AT %ID."PLC".IF1.NettimeSoC;
+	Cyclic#1.::Vision1:hwInstance[2].io.in.nettime AT %ID."PLC".IF1.NettimeSoC;
+	Cyclic#1.::Vision1:hwInstance[3].io.in.nettime AT %ID."PLC".IF1.NettimeSoC;
+	Cyclic#1.::Vision1:hwInstance[4].io.in.nettime AT %ID."PLC".IF1.NettimeSoC;
+	Cyclic#1.::Vision1:hwInstance[5].io.in.nettime AT %ID."PLC".IF1.NettimeSoC;
+	Cyclic#1.::Vision1:hwInstance[6].io.in.nettime AT %ID."PLC".IF1.NettimeSoC;
+	Cyclic#1.::Axis:hw.in.nettime AT %ID."PLC".IF1.NettimeSoC;
+	Cyclic#1.::NettimeCurrent_us AT %ID."PLC".IF1.NettimeSoC;
+END_VAR

@@ -1,68 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<?AutomationStudio Version=4.12.3.127 FileVersion="4.9"?>
+<?AutomationStudio Version=4.12.6.106 FileVersion="4.9"?>
 <Hardware xmlns="http://br-automation.co.at/AS/Hardware">
-  <Module Name="4PPC50_156B_10B" Type="4PPC50.156B-10B" Version="1.1.4.0">
-    <Connector Name="IF1">
-      <Parameter ID="MtuSize" Value="1500" />
-      <Parameter ID="DNAConfiguration" Value="manual" />
-      <Parameter ID="CycleTime" Value="800" />
-      <Parameter ID="InternetAddress" Value="192.168.200.240" />
-      <Parameter ID="SubnetMask" Value="255.255.255.0" />
-    </Connector>
-    <Connector Name="IF2">
-      <Parameter ID="ActivateDevice" Value="1" />
-      <Parameter ID="Mode" Value="Manual" />
-      <Parameter ID="InternetAddress" Value="192.168.225.212" />
-      <Parameter ID="SubnetMask" Value="255.255.255.0" />
-      <Parameter ID="InaNodeNumber" Value="212" />
-      <Parameter ID="ActivateSnmp" Value="2" />
-    </Connector>
-    <Connector Name="IF3">
-      <Parameter ID="AssignedOperatingSystem" Value="ARemb" />
-    </Connector>
-    <Connector Name="IF4">
-      <Parameter ID="AssignedOperatingSystem" Value="GPOS" />
-    </Connector>
-    <Parameter ID="ConfigurationID" Value="Vision_Sample" />
-    <Parameter ID="ConfigVersion" Value="2.0.0" />
-    <Parameter ID="UserPartitionSize" Value="400" />
-    <Parameter ID="PermanentPvSize" Value="2000" />
-    <Parameter ID="RemanentGlobalPvSize" Value="20000" />
-    <Parameter ID="VolatileGlobalPvSize" Value="256000" />
-    <Parameter ID="TimerDeviceType" Value="EPLX2X" />
-    <Parameter ID="TimerDevice" Value="4PPC50_156B_10B.IF1" />
-    <Parameter ID="TaskClassIdleTime" Value="800" />
-    <Parameter ID="Cyclic1Duration" Value="800" />
-    <Parameter ID="Cyclic1Tolerance" Value="800" />
-    <Parameter ID="Cyclic2Duration" Value="20000" />
-    <Parameter ID="Cyclic2Tolerance" Value="20000" />
-    <Parameter ID="Cyclic3Duration" Value="49600" />
-    <Parameter ID="Cyclic3Tolerance" Value="49600" />
-    <Parameter ID="Cyclic4Duration" Value="100000" />
-    <Parameter ID="Cyclic4Tolerance" Value="100000" />
-    <Parameter ID="Cyclic5Duration" Value="200000" />
-    <Parameter ID="Cyclic5Tolerance" Value="200000" />
-    <Parameter ID="Cyclic6Duration" Value="500000" />
-    <Parameter ID="Cyclic6Tolerance" Value="500000" />
-    <Parameter ID="Cyclic7Duration" Value="1000000" />
-    <Parameter ID="Cyclic7Tolerance" Value="1000000" />
-    <Parameter ID="Cyclic8Duration" Value="9600" />
-    <Parameter ID="Cyclic8Tolerance" Value="30000000" />
-    <Group ID="FileDevice1" />
-    <Parameter ID="FileDeviceName1" Value="USER" />
-    <Parameter ID="FileDevicePath1" Value="USER_PATH" />
-    <Group ID="FtpUser1" />
-    <Parameter ID="FtpUsername1" Value="bundr" />
-    <Parameter ID="FtpUserPassword1" Value="nMrFtJX1iKQAFT02mGT80Wb1a11GH29G52ATfKQ9HoA=" />
-    <Parameter ID="FtpUserSalt1" Value="/yM7MnyJ" />
-    <Parameter ID="FTPAccessRight1" Value="0" />
-    <Parameter ID="ActivateOpcUa" Value="1" />
-    <Parameter ID="OpcUaInformationModels_PV_Version" Value="1" />
-    <Parameter ID="LXTMode" Value="Manual" />
-    <Parameter ID="LXTInternetAddress" Value="192.168.86.200" />
-    <Parameter ID="LXTDefaultGateway" Value="192.168.86.135" />
-    <Parameter ID="LXTSubnetmask" Value="255.255.255.0" />
-  </Module>
   <Module Name="8AC114.60-2" Type="8AC114.60-2" Version="1.0.0.8">
     <Connection Connector="SS" TargetModule="8V1010.50-2" TargetConnector="SS1" />
     <Connection Connector="PLK1" TargetModule="Lightbar1" TargetConnector="PLK2" NodeNumber="50">
@@ -144,7 +82,7 @@
     <Parameter ID="VisionConfig" Value="" />
   </Module>
   <Module Name="Blob" Type="VSS112Q22.041P-000" Version="1.6.0.543">
-    <Connection Connector="PLK1" TargetModule="4PPC50_156B_10B" TargetConnector="IF1" NodeNumber="1">
+    <Connection Connector="PLK1" TargetModule="PLC" TargetConnector="IF1" NodeNumber="1">
       <Cable Type="PowerlinkCable" Length="10" Version="1.0.0.3" />
     </Connection>
     <Connection Connector="PLK2" TargetModule="Measurement" TargetConnector="PLK1" NodeNumber="1">
@@ -202,6 +140,68 @@
     </Connection>
     <Parameter ID="Supervision" Value="off" />
     <Parameter ID="VisionConfig" Value="gCameraOCR" />
+  </Module>
+  <Module Name="PLC" Type="4PPC50.156B-10B" Version="1.1.4.0">
+    <Connector Name="IF1">
+      <Parameter ID="MtuSize" Value="1500" />
+      <Parameter ID="DNAConfiguration" Value="manual" />
+      <Parameter ID="CycleTime" Value="800" />
+      <Parameter ID="InternetAddress" Value="192.168.200.240" />
+      <Parameter ID="SubnetMask" Value="255.255.255.0" />
+    </Connector>
+    <Connector Name="IF2">
+      <Parameter ID="ActivateDevice" Value="1" />
+      <Parameter ID="Mode" Value="Manual" />
+      <Parameter ID="InternetAddress" Value="192.168.225.212" />
+      <Parameter ID="SubnetMask" Value="255.255.255.0" />
+      <Parameter ID="InaNodeNumber" Value="212" />
+      <Parameter ID="ActivateSnmp" Value="2" />
+    </Connector>
+    <Connector Name="IF3">
+      <Parameter ID="AssignedOperatingSystem" Value="ARemb" />
+    </Connector>
+    <Connector Name="IF4">
+      <Parameter ID="AssignedOperatingSystem" Value="GPOS" />
+    </Connector>
+    <Parameter ID="ConfigurationID" Value="Vision_Sample" />
+    <Parameter ID="ConfigVersion" Value="2.0.0" />
+    <Parameter ID="UserPartitionSize" Value="400" />
+    <Parameter ID="PermanentPvSize" Value="2000" />
+    <Parameter ID="RemanentGlobalPvSize" Value="20000" />
+    <Parameter ID="VolatileGlobalPvSize" Value="256000" />
+    <Parameter ID="TimerDeviceType" Value="EPLX2X" />
+    <Parameter ID="TimerDevice" Value="PLC.IF1" />
+    <Parameter ID="TaskClassIdleTime" Value="800" />
+    <Parameter ID="Cyclic1Duration" Value="800" />
+    <Parameter ID="Cyclic1Tolerance" Value="800" />
+    <Parameter ID="Cyclic2Duration" Value="20000" />
+    <Parameter ID="Cyclic2Tolerance" Value="20000" />
+    <Parameter ID="Cyclic3Duration" Value="49600" />
+    <Parameter ID="Cyclic3Tolerance" Value="49600" />
+    <Parameter ID="Cyclic4Duration" Value="100000" />
+    <Parameter ID="Cyclic4Tolerance" Value="100000" />
+    <Parameter ID="Cyclic5Duration" Value="200000" />
+    <Parameter ID="Cyclic5Tolerance" Value="200000" />
+    <Parameter ID="Cyclic6Duration" Value="500000" />
+    <Parameter ID="Cyclic6Tolerance" Value="500000" />
+    <Parameter ID="Cyclic7Duration" Value="1000000" />
+    <Parameter ID="Cyclic7Tolerance" Value="1000000" />
+    <Parameter ID="Cyclic8Duration" Value="9600" />
+    <Parameter ID="Cyclic8Tolerance" Value="30000000" />
+    <Group ID="FileDevice1" />
+    <Parameter ID="FileDeviceName1" Value="USER" />
+    <Parameter ID="FileDevicePath1" Value="USER_PATH" />
+    <Group ID="FtpUser1" />
+    <Parameter ID="FtpUsername1" Value="bundr" />
+    <Parameter ID="FtpUserPassword1" Value="nMrFtJX1iKQAFT02mGT80Wb1a11GH29G52ATfKQ9HoA=" />
+    <Parameter ID="FtpUserSalt1" Value="/yM7MnyJ" />
+    <Parameter ID="FTPAccessRight1" Value="0" />
+    <Parameter ID="ActivateOpcUa" Value="1" />
+    <Parameter ID="OpcUaInformationModels_PV_Version" Value="1" />
+    <Parameter ID="LXTMode" Value="Manual" />
+    <Parameter ID="LXTInternetAddress" Value="192.168.86.200" />
+    <Parameter ID="LXTDefaultGateway" Value="192.168.86.135" />
+    <Parameter ID="LXTSubnetmask" Value="255.255.255.0" />
   </Module>
   <Module Name="PixelCounter" Type="VSS112Q22.041P-000" Version="1.6.0.543">
     <Connection Connector="PLK1" TargetModule="OCR" TargetConnector="PLK2" NodeNumber="6">

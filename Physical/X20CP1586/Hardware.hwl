@@ -2,7 +2,7 @@
 <?AutomationStudio FileVersion="4.9"?>
 <BR.AS.HardwareTopology>
   <TimeStamps>
-    <TimeStamp LogicalPath="X20CP1586.Hardware.hw" LastWriteTime="08/08/2024 13:34:50" />
+    <TimeStamp LogicalPath="X20CP1586.Hardware.hw" LastWriteTime="08/09/2024 14:10:00" />
   </TimeStamps>
   <Modules>
     <Module Name="blobBacklight" Type="VSLB11Q00.54DP-000" X="160" Y="235" />
@@ -28,13 +28,33 @@
     <Module Name="Measurement" Type="VSS112Q12.023P-000" X="393" Y="64" />
     <Module Name="OCR" Type="VSS112Q12.023P-000" X="691" Y="64" />
     <Module Name="PixelCounter" Type="VSS112Q12.023P-000" X="796" Y="64" />
-    <Module Name="X20CP1586" Type="X20CP1586" X="100" Y="100" />
+    <Module Name="PLC" Type="X20CP1586" X="100" Y="100" />
     <Module Name="X20BM11" Type="X20BM11" X="250" Y="100" />
     <Module Name="X20DI9371" Type="X20DI9371" X="250" Y="100" />
     <Module Name="X20TB12" Type="X20TB12" X="250" Y="127" />
     <Module Name="Blob" Type="VSC123R21.041P-000" X="291" Y="64" />
   </Modules>
   <Links>
+    <Link From="Blob" To="PLC" FromPort="PLK1" ToPort="IF3" IsRoutedByUser="False">
+      <Point X="309" Y="182" />
+      <Point X="309" Y="182" />
+      <Point X="309" Y="187" />
+      <Point X="309" Y="205" />
+      <Point X="156" Y="205" />
+      <Point X="156" Y="200" />
+      <Point X="156" Y="187" />
+      <Point X="156" Y="187" />
+    </Link>
+    <Link From="Blob" To="Measurement" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="354" Y="182" />
+      <Point X="354" Y="182" />
+      <Point X="354" Y="187" />
+      <Point X="354" Y="195" />
+      <Point X="411" Y="195" />
+      <Point X="411" Y="187" />
+      <Point X="411" Y="182" />
+      <Point X="411" Y="182" />
+    </Link>
     <Link From="CodeReader" To="Measurement" FromPort="PLK1" ToPort="PLK2" IsRoutedByUser="False">
       <Point X="513" Y="182" />
       <Point X="513" Y="182" />
@@ -260,26 +280,6 @@
       <Point X="968" Y="738" />
       <Point X="968" Y="733" />
       <Point X="968" Y="733" />
-    </Link>
-    <Link From="Blob" To="X20CP1586" FromPort="PLK1" ToPort="IF3" IsRoutedByUser="False">
-      <Point X="309" Y="182" />
-      <Point X="309" Y="182" />
-      <Point X="309" Y="187" />
-      <Point X="309" Y="205" />
-      <Point X="156" Y="205" />
-      <Point X="156" Y="200" />
-      <Point X="156" Y="187" />
-      <Point X="156" Y="187" />
-    </Link>
-    <Link From="Blob" To="Measurement" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
-      <Point X="354" Y="182" />
-      <Point X="354" Y="182" />
-      <Point X="354" Y="187" />
-      <Point X="354" Y="195" />
-      <Point X="411" Y="195" />
-      <Point X="411" Y="187" />
-      <Point X="411" Y="182" />
-      <Point X="411" Y="182" />
     </Link>
   </Links>
   <InfoElements />

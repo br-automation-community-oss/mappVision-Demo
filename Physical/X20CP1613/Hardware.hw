@@ -70,7 +70,7 @@
       <Parameter ID="SubnetMask" Value="255.255.255.0" />
     </Connector>
     <Parameter ID="ConfigurationID" Value="Vision_Sample" />
-    <Parameter ID="ConfigVersion" Value="2.0.0" />
+    <Parameter ID="ConfigVersion" Value="2.0.1" />
     <Parameter ID="UserPartitionSize" Value="260" />
     <Parameter ID="RemMemSize" Value="30000" />
     <Parameter ID="RemanentGlobalPvSize" Value="20000" />

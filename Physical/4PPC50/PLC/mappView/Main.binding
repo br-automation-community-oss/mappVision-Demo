@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="Main_binding">
+	<Bindings>
+		
+		<!--<Binding mode="twoWay">
+		<Source xsi:type="opcUa" refId="::Vi_visu:visSensorEnableCommand" attribute="value" />
+		<Target xsi:type="brease" contentRefId="contentMain" widgetRefId="btnChrosshairEnable" attribute="enable" />
+		</Binding>-->
+		
+		<!--<Binding mode="twoWay">
+		<Source xsi:type="brease" contentRefId="contentMain" widgetRefId="btnChrosshairEnable" attribute="value" />
+		<Target xsi:type="brease" contentRefId="contentMain" widgetRefId="numDetailsNoDown" attribute="enable" />
+		</Binding>
+		<Binding mode="twoWay">
+		<Source xsi:type="brease" contentRefId="contentMain" widgetRefId="btnChrosshairEnable" attribute="value" />
+		<Target xsi:type="brease" contentRefId="contentMain" widgetRefId="numDetailsNoUp" attribute="enable" />
+		</Binding>
+		<Binding mode="twoWay">
+		<Source xsi:type="brease" contentRefId="contentMain" widgetRefId="btnChrosshairEnable" attribute="value" />
+		<Target xsi:type="brease" contentRefId="contentMain" widgetRefId="numDetailsNo" attribute="enable" />
+		</Binding>-->
+		
+		<Binding mode="twoWay">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="camIdx" attribute="value" />
+				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUa" attribute="value">				
+					<bt:Element index="1" refId="::Vision1:hmiInstance[1].out.VF.numResults" />
+					<bt:Element index="2" refId="::Vision1:hmiInstance[2].out.VF.numResults" />
+					<bt:Element index="3" refId="::Vision1:hmiInstance[3].out.VF.numResults" />
+					<bt:Element index="4" refId="::Vision1:hmiInstance[4].out.VF.numResults" />
+					<bt:Element index="5" refId="::Vision1:hmiInstance[5].out.VF.numResults" />
+					<bt:Element index="6" refId="::Vision1:hmiInstance[6].out.VF.numResults" />
+				</be:List>
+			</Source>
+			<Target xsi:type="session" refId="numResults" attribute="value" />
+		</Binding>
+		
+		
+		<Binding mode="twoWay">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="camIdx" attribute="value" />
+				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUa" attribute="value">				
+					<bt:Element index="1" refId="::Vision1:hmiInstance[1].out.wsPort" />
+					<bt:Element index="2" refId="::Vision1:hmiInstance[2].out.wsPort" />
+					<bt:Element index="3" refId="::Vision1:hmiInstance[3].out.wsPort" />
+					<bt:Element index="4" refId="::Vision1:hmiInstance[4].out.wsPort" />
+					<bt:Element index="5" refId="::Vision1:hmiInstance[5].out.wsPort" />
+					<bt:Element index="6" refId="::Vision1:hmiInstance[6].out.wsPort" />
+				</be:List>
+</Source>
+			<Target xsi:type="brease" contentRefId="contentMain" widgetRefId="VisionImage1" attribute="PLCWebsocketPort" />
+		</Binding>
+		
+		<Binding mode="twoWay">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="camIdx" attribute="value" />
+				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUa" attribute="value">				
+					<bt:Element index="1" refId="::Vision1:hmiInstance[1].out.svgOverlay" />
+					<bt:Element index="2" refId="::Vision1:hmiInstance[2].out.svgOverlay" />
+					<bt:Element index="3" refId="::Vision1:hmiInstance[3].out.svgOverlay" />
+					<bt:Element index="4" refId="::Vision1:hmiInstance[4].out.svgOverlay" />
+					<bt:Element index="5" refId="::Vision1:hmiInstance[5].out.svgOverlay" />
+					<bt:Element index="6" refId="::Vision1:hmiInstance[6].out.svgOverlay" />
+				</be:List>
+</Source>
+			<Target xsi:type="brease" contentRefId="contentMain" widgetRefId="VisionImage1" attribute="svgOverlay" />
+		</Binding>
+		
+		<Binding mode="twoWay">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="camIdx" attribute="value" />
+				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUa" attribute="value">				
+					<bt:Element index="1" refId="::Vision1:hmiInstance[1].in.cmd.intElemId" />
+					<bt:Element index="2" refId="::Vision1:hmiInstance[2].in.cmd.intElemId" />
+					<bt:Element index="3" refId="::Vision1:hmiInstance[3].in.cmd.intElemId" />
+					<bt:Element index="4" refId="::Vision1:hmiInstance[4].in.cmd.intElemId" />
+					<bt:Element index="5" refId="::Vision1:hmiInstance[5].in.cmd.intElemId" />
+					<bt:Element index="6" refId="::Vision1:hmiInstance[6].in.cmd.intElemId" />
+				</be:List>
+</Source>
+			<Target xsi:type="brease" contentRefId="contentMain" widgetRefId="numDetailsNo" attribute="value" />
+		</Binding>
+
+		
+
+		<!--VF result binings to compound widgets -->
+		<Binding mode="twoWay">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="camIdx" attribute="value" />
+				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUaComplexObject">				
+					<bt:Element index="1" refId="::Vision1:hmiInstance[1].out.VF.blob" />
+					<bt:Element index="2" refId="::Vision1:hmiInstance[2].out.VF.blob" />
+					<bt:Element index="3" refId="::Vision1:hmiInstance[3].out.VF.blob" />
+					<bt:Element index="4" refId="::Vision1:hmiInstance[4].out.VF.blob" />
+					<bt:Element index="5" refId="::Vision1:hmiInstance[5].out.VF.blob" />
+					<bt:Element index="6" refId="::Vision1:hmiInstance[6].out.VF.blob" />
+				</be:List>
+</Source>
+			<Target xsi:type="brease" contentRefId="contentMain" widgetRefId="blobResultProp1" attribute="Structure" />
+		</Binding>
+		
+		<Binding mode="twoWay">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="camIdx" attribute="value" />
+				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUaComplexObject">				
+					<bt:Element index="1" refId="::Vision1:hmiInstance[1].out.VF.codeReader" />
+					<bt:Element index="2" refId="::Vision1:hmiInstance[2].out.VF.codeReader" />
+					<bt:Element index="3" refId="::Vision1:hmiInstance[3].out.VF.codeReader" />
+					<bt:Element index="4" refId="::Vision1:hmiInstance[4].out.VF.codeReader" />
+					<bt:Element index="5" refId="::Vision1:hmiInstance[5].out.VF.codeReader" />
+					<bt:Element index="6" refId="::Vision1:hmiInstance[6].out.VF.codeReader" />
+				</be:List>
+</Source>
+			<Target xsi:type="brease" contentRefId="contentMain" widgetRefId="codeReaderResultProp1" attribute="Structure" />
+		</Binding>
+		
+		<Binding mode="twoWay">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="camIdx" attribute="value" />
+				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUaComplexObject">				
+					<bt:Element index="1" refId="::Vision1:hmiInstance[1].out.VF.match" />
+					<bt:Element index="2" refId="::Vision1:hmiInstance[2].out.VF.match" />
+					<bt:Element index="3" refId="::Vision1:hmiInstance[3].out.VF.match" />
+					<bt:Element index="4" refId="::Vision1:hmiInstance[4].out.VF.match" />
+					<bt:Element index="5" refId="::Vision1:hmiInstance[5].out.VF.match" />
+					<bt:Element index="6" refId="::Vision1:hmiInstance[6].out.VF.match" />
+				</be:List>
+</Source>
+			<Target xsi:type="brease" contentRefId="contentMain" widgetRefId="matchingResultProp1" attribute="Structure" />
+		</Binding>
+		
+		
+		
+		
+		<Binding mode="twoWay">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="camIdx" attribute="value" />
+				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUaComplexObject">				
+					<bt:Element index="1" refId="::Vision1:hmiInstance[1].out.VF.ocr" />
+					<bt:Element index="2" refId="::Vision1:hmiInstance[2].out.VF.ocr" />
+					<bt:Element index="3" refId="::Vision1:hmiInstance[3].out.VF.ocr" />
+					<bt:Element index="4" refId="::Vision1:hmiInstance[4].out.VF.ocr" />
+					<bt:Element index="5" refId="::Vision1:hmiInstance[5].out.VF.ocr" />
+					<bt:Element index="6" refId="::Vision1:hmiInstance[6].out.VF.ocr" />
+				</be:List>
+</Source>
+			<Target xsi:type="brease" contentRefId="contentMain" widgetRefId="ocrResultProp1" attribute="Structure" />
+		</Binding>
+
+		<Binding mode="twoWay">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="camIdx" attribute="value" />
+				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUaComplexObject">				
+					<bt:Element index="1" refId="::Vision1:hmiInstance[1].out.VF.pixelCnt" />
+					<bt:Element index="2" refId="::Vision1:hmiInstance[2].out.VF.pixelCnt" />
+					<bt:Element index="3" refId="::Vision1:hmiInstance[3].out.VF.pixelCnt" />
+					<bt:Element index="4" refId="::Vision1:hmiInstance[4].out.VF.pixelCnt" />
+					<bt:Element index="5" refId="::Vision1:hmiInstance[5].out.VF.pixelCnt" />
+					<bt:Element index="6" refId="::Vision1:hmiInstance[6].out.VF.pixelCnt" />
+				</be:List>
+</Source>
+			<Target xsi:type="brease" contentRefId="contentMain" widgetRefId="pixelCntResultProp1" attribute="Structure" />
+		</Binding>
+		
+		<Binding mode="twoWay">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="camIdx" attribute="value" />
+				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUa" attribute="value">				
+					<bt:Element index="1" refId="::Vision1:hmiInstance[1].out.VF.measurement.result" />
+					<bt:Element index="2" refId="::Vision1:hmiInstance[2].out.VF.measurement.result" />
+					<bt:Element index="3" refId="::Vision1:hmiInstance[3].out.VF.measurement.result" />
+					<bt:Element index="4" refId="::Vision1:hmiInstance[4].out.VF.measurement.result" />
+					<bt:Element index="5" refId="::Vision1:hmiInstance[5].out.VF.measurement.result" />
+					<bt:Element index="6" refId="::Vision1:hmiInstance[6].out.VF.measurement.result" />
+				</be:List>
+</Source>
+			<Target xsi:type="brease" contentRefId="contentMain" widgetRefId="measureResultProp1" attribute="result" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="camIdx" attribute="value" />
+				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUaComplexObject">				
+					<bt:Element index="1" refId="::Vision1:hmiInstance[1].in.recipe.draw" />
+					<bt:Element index="2" refId="::Vision1:hmiInstance[2].in.recipe.draw" />
+					<bt:Element index="3" refId="::Vision1:hmiInstance[3].in.recipe.draw" />
+					<bt:Element index="4" refId="::Vision1:hmiInstance[4].in.recipe.draw" />
+					<bt:Element index="5" refId="::Vision1:hmiInstance[5].in.recipe.draw" />
+					<bt:Element index="6" refId="::Vision1:hmiInstance[6].in.recipe.draw" />
+				</be:List>
+</Source>
+			<Target xsi:type="brease" contentRefId="contentMain" widgetRefId="drawSettingsWidget1" attribute="structure" />
+		</Binding>
+		
+		
+<Binding mode="twoWay">
+<Source xsi:type="brease" contentRefId="contentMain" widgetRefId="VisionImage1" attribute="viewRotateAngle" />
+<Target xsi:type="brease" contentRefId="contentMain" widgetRefId="BasicSlider1" attribute="value" />
+</Binding>
+<Binding mode="twoWay">
+<Source xsi:type="listElement">
+				<Selector xsi:type="session" refId="camIdx" attribute="value" />
+				<be:List xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xsi:type="be:opcUa" attribute="value">				
+					<bt:Element index="1" refId="::Vision1:hmiInstance[1].in.cmd.saveImage" />
+					<bt:Element index="2" refId="::Vision1:hmiInstance[2].in.cmd.saveImage" />
+					<bt:Element index="3" refId="::Vision1:hmiInstance[3].in.cmd.saveImage" />
+					<bt:Element index="4" refId="::Vision1:hmiInstance[4].in.cmd.saveImage" />
+					<bt:Element index="5" refId="::Vision1:hmiInstance[5].in.cmd.saveImage" />
+					<bt:Element index="6" refId="::Vision1:hmiInstance[6].in.cmd.saveImage" />
+				</be:List>
+</Source>
+<Target xsi:type="brease" contentRefId="contentMain" widgetRefId="PushButtonSave" attribute="value" />
+</Binding>
+
+	</Bindings>
+</BindingsSet>
