@@ -628,6 +628,7 @@ Maximum line position of the BLOB area*)
 		triggerActive : BOOL;
 		simDelay : TON;
 		waitForImage : BOOL;
+		oldDelayNettime : DINT;
 	END_STRUCT;
 	brdkViBase_simCam_internal_typ : 	STRUCT 
 		imgCnt : USINT;

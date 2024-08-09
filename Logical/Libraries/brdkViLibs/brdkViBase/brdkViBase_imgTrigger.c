@@ -4,7 +4,7 @@
 	extern "C"
 	{
 #endif
-	#include "brdkViBase.h"
+#include "brdkViBase.h"
 #ifdef __cplusplus
 	};
 #endif
@@ -77,46 +77,56 @@ void brdkViBase_imgTrigger(struct brdkViBase_imgTrigger* inst)
 			
 			if(inst->ready){
 				
+				if(inst->delayNettime != inst->internal.oldDelayNettime ){
+					pCam->out.par.delayNetTime = inst->delayNettime; // Setting delayNettime for cam
+					if(inst->numLights > 0 ){ // Setting delaynettime for lights
+						for(int i = 0; i < inst->numLights; i++){
+							inst->pLightHw[i].out.par.nettime = inst->delayNettime;
+						}
+					}
+					inst->internal.oldDelayNettime = inst->delayNettime;  //after the output delaynettime is set, the old delay can then be updated
+				}
+			
 				if(inst->trigger){
 					inst->internal.triggerActive = 1;
 					inst->trigger = 0;
 					inst->busy = 1;
-					pCam->out.cmd.imageAcquisition = 1;
 					pCam->out.par.delayNetTime = inst->delayNettime;
-					
+					inst->internal.oldDelayNettime = inst->delayNettime; //after the output delaynettime is set, the old delay can then be updated
+					pCam->out.cmd.imageAcquisition = 1;
 					if(inst->numLights > 0 ){
 						for(int i = 0; i < inst->numLights; i++){
-							inst->pLightHw[i].out.cmd.flashTrigger = 1;
 							inst->pLightHw[i].out.par.nettime = inst->delayNettime;
-				
+							inst->pLightHw[i].out.cmd.flashTrigger = 1;
 						}
 					}
 				}else if(inst->searchAcquisitonSettings){
 				
 					pCam->out.cmd.searchAcquisitonSettings = 1;
+					pCam->out.cmd.imageAcquisition = 1;
 					
 					inst->internal.state = 10;
 			
 				}
 			}
 			
-		break;
+			break;
 		
 		case 10: // Auto focus start
-				if(!pCam->in.status.imageAcquisitionReady){
-					inst->internal.state = 20;
-				}
+			if(!inst->ready){
+				inst->internal.state = 20;
+			}
 				
-		break;
+			break;
 		
 		case 20: // Auto focus done
 	
-			if(pCam->in.status.imageAcquisitionReady){
+			if(inst->ready){
 				inst->searchAcquisitonSettingsDone = 1;
 				inst->internal.state = 0;
 			}
 			
-		break;
+			break;
 	}
 		
 	
