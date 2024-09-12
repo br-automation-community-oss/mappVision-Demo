@@ -183,7 +183,7 @@
     </Connector>
     <Parameter ID="ConfigurationID" Value="Vision_Sample" />
     <Parameter ID="ConfigVersion" Value="2.0.0" />
-    <Parameter ID="UserPartitionSize" Value="100" />
+    <Parameter ID="UserPartitionSize" Value="32" />
     <Parameter ID="RemMemSize" Value="30000" />
     <Parameter ID="RemanentGlobalPvSize" Value="20000" />
     <Parameter ID="VolatileGlobalPvSize" Value="256000" />
