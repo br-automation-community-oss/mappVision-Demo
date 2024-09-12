@@ -10,13 +10,15 @@ TYPE
 		mcCFG_WS := 800, (*Associated with data type McCfgWorkspaceType*)
 		mcCFG_TOOLTBL := 900, (*Tooltable -*)
 		mcCFG_FRMTBL := 1000, (*Associated with data type McCfgFrmTblType*)
-		mcCFG_DYNPARTBL := 1100, (**)
+		mcCFG_DYNPARTBL := 1100, (*Associated with data type McCfgDynParTblType*)
 		mcCFG_TOOL := 1300, (*Tool -*)
 		mcCFG_LIMSET_LIN := 1411, (*Associated with data type McCfgLimSetLinType*)
 		mcCFG_LIMSET_ROT := 1412, (*Associated with data type McCfgLimSetRotType*)
 		mcCFG_CAMLST := 1500, (*Associated with data type McCfgCamLstType*)
 		mcCFG_PROC_PT_LST := 1600, (*Associated with data type McCfgProcPtLstType*)
+		mcCFG_PROC_POINT := 1601, (*Associated with data type McCfgProcPointType*)
 		mcCFG_TRK_PATH := 1700, (*Associated with data type McCfgTrkPathType*)
+		mcCFG_TRK_PATH_SCN := 1701, (*Associated with data type McCfgTrkPathScnType*)
 		mcCFG_PICK_CORE := 2100, (*Associated with data type MpCfgPickCoreType*)
 		mcCFG_PICK_REG := 2110, (*Associated with data type MpCfgPickRegType*)
 		mcCFG_PICK_REG_SCN := 2111, (*Associated with data type MpCfgPickRegScnType*)
@@ -36,6 +38,7 @@ TYPE
 		mcCFG_AX_FEAT_BRK := 10105, (*Associated with data type McCfgAxFeatBrkType*)
 		mcCFG_AX_FEAT_MECH_DEV_COMP := 10106, (*Associated with data type McCfgAxFeatMechDevCompType*)
 		mcCFG_AX_FEAT_ACP_NETW_ERR_REAC := 10108, (*Associated with data type McCfgAxFeatAcpNetwErrReacType*)
+		mcCFG_AX_FEAT_ACP_CYC_DAT_PROC := 10112, (*Associated with data type McCfgAxFeatAcpCycDatProcType*)
 		mcCFG_MOT_SYN := 10500, (*Associated with data type McCfgMotSynType*)
 		mcCFG_MOT_INDUCT := 10501, (*Associated with data type McCfgMotInductType*)
 		mcCFG_MOT_SYN_AMC := 10502, (*Associated with data type McCfgMotSynAmcType*)
@@ -135,7 +138,7 @@ TYPE
 		mcCFG_AXGRP_FEAT_FF := 21104, (*Associated with data type McCfgAxGrpFeatFfType*)
 		mcCFG_AXGRP_FEAT_FRM_HIER_STD := 21105, (*Associated with data type McCfgAxGrpFeatFrmHierStdType*)
 		mcCFG_AXGRP_FEAT_FRM_HIER_CUS := 21106, (*Associated with data type McCfgAxGrpFeatFrmHierCusType*)
-		mcCFG_AXGRP_FEAT_JOG := 21107, (*AxesgroupFeatureJogging -*)
+		mcCFG_AXGRP_FEAT_JOG := 21107, (*Associated with data type McCfgAxGrpFeatJogType*)
 		mcCFG_AXGRP_FEAT_LAH := 21108, (*Associated with data type McCfgAxGrpFeatLahType*)
 		mcCFG_AXGRP_FEAT_MFUN := 21109, (*Associated with data type McCfgAxGrpFeatMFunType*)
 		mcCFG_AXGRP_FEAT_MON_ELEM := 21110, (*Associated with data type McCfgAxGrpFeatMonElemType*)
@@ -168,6 +171,8 @@ TYPE
 		mcCFG_SEC_COMP := 31301, (*Associated with data type McCfgSecCompType*)
 		mcCFG_SEC_SUB := 31302, (*Associated with data type McCfgSecSubType*)
 		mcCFG_SH_STEREO_TYP := 31400, (*Associated with data type McCfgShStereoTypType*)
+		mcCFG_SH_JERK_FILT := 31401, (*Associated with data type McCfgShJerkFiltType*)
+		mcCFG_SH_STATE_TRANS := 31402, (*Associated with data type McCfgShStateTransType*)
 		mcCFG_SEG := 31500, (*Associated with data type McCfgSegType*)
 		mcCFG_MS_CUS_STD := 50001, (*Associated with data type McCfgMSCusStdType*)
 		mcCFG_MS_2AX_CNC_XY := 51201, (*Associated with data type McCfgMS2AxCncXYType*)
@@ -318,9 +323,18 @@ TYPE
 	McMMCLogType : STRUCT
 		Selective : McMMCLogSelType; (*Define which logging areas should be visible*)
 	END_STRUCT;
+	McMMCMcAcpDrvPLKCycPerParIDEnum :
+		( (*Defines the number of POWERLINK cycles per ParID for parameter transfer*)
+		mcMMCMPCPP_ONE := 1, (*One - One ParID every cycle*)
+		mcMMCMPCPP_TWO := 2 (*Two - One ParID every second cycle*)
+		);
+	McMMCMcAcpDrvType : STRUCT (*ACOPOS driver configuration*)
+		POWERLINKCyclesPerParID : McMMCMcAcpDrvPLKCycPerParIDEnum; (*Defines the number of POWERLINK cycles per ParID for parameter transfer*)
+	END_STRUCT;
 	McCfgMMCfgType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_MMCFG*)
 		Processing : McMMCProcType;
 		Logger : McMMCLogType;
+		McAcpDrv : McMMCMcAcpDrvType; (*ACOPOS driver configuration*)
 	END_STRUCT;
 	McOHGCSOTypEnum :
 		( (*Type selector setting*)
@@ -597,6 +611,15 @@ TYPE
 	McCfgFrmTblType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_FRMTBL*)
 		Row : McCfgUnboundedArrayType;
 	END_STRUCT;
+	McDPTRowType : STRUCT
+		BaseParameterIndex : UINT;
+		Value : LREAL;
+		Unit : STRING[250];
+		Description : STRING[250];
+	END_STRUCT;
+	McCfgDynParTblType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_DYNPARTBL*)
+		Row : McCfgUnboundedArrayType;
+	END_STRUCT;
 	McLSPosEnum :
 		( (*Position selector setting*)
 		mcLSP_NOT_USE := 0, (*Not used -*)
@@ -803,6 +826,9 @@ TYPE
 	McCfgProcPtLstType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_PROC_PT_LST*)
 		ProcessPoints : McCfgUnboundedArrayType;
 	END_STRUCT;
+	McCfgProcPointType : STRUCT (*Main data type corresponding to McCfgTypeEnum mcCFG_PROC_POINT*)
+		ProcessPoint : McPPLPtType;
+	END_STRUCT;
 	McCfgLocLenUnitEnum :
 		( (*Measurement unit for the axis*)
 		mcCLLU_G_SET := 0, (*Global settings*)
@@ -827,6 +853,11 @@ TYPE
 	McCfgExtLimRefType : STRUCT (*Type mcAML_EXT settings*)
 		LimitReference : McCfgReferenceType; (*Name of the limit reference*)
 	END_STRUCT;
+	McPTCEnum :
+		( (*Cyclic task class for command processing*)
+		mcPTC_CYC_1 := 1, (*Cyclic #1 - Task class 1*)
+		mcPTC_USE_MP_MOT_SET := 255 (*Use mapp Motion setting - Use the defined setting from the mapp Motion configuration or Task class 1 if no mapp Motion Configuration exists*)
+		);
 	McCfgGearBoxType : STRUCT (*Ratio between a gearbox input and output*)
 		Input : DINT; (*Number of rotations on the encoder side [Revolutions]*)
 		Output : DINT; (*Number of rotations on the load side which correspond to the number of rotations on the encoder side [Revolutions]*)
@@ -834,11 +865,6 @@ TYPE
 	McCfgRotToLinTrfType : STRUCT (*Specifies a transformation factor between the output of the gear and the actual load movement*)
 		ReferenceDistance : LREAL; (*Reference distance which is considered for an axis positioning [Measurement units/Gearbox output revolution]*)
 	END_STRUCT;
-	McPTCEnum :
-		( (*Cyclic task class for command processing*)
-		mcPTC_CYC_1 := 1, (*Cyclic #1 - Task class 1*)
-		mcPTC_USE_MP_MOT_SET := 255 (*Use mapp Motion setting - Use the defined setting from the mapp Motion configuration or Task class 1 if no mapp Motion Configuration exists*)
-		);
 	McCfgLimJerkBaseType : STRUCT (*Type mcAGFPDPLIJ_BASIC settings*)
 		Jerk : REAL; (*Jerk limit in any movement direction [Measurement units/s³]*)
 	END_STRUCT;

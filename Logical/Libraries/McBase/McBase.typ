@@ -317,13 +317,17 @@ TYPE
 		controlif : REFERENCE TO McInternalTrackingPathIfType; (**)
 	END_STRUCT;
 
+	McComponentType : UDINT;
+
 	McGetCoordSystemIdentParType : STRUCT
 		AxesGroup : REFERENCE TO McAxesGroupType; (*The axis group reference establishes the connection between the function block and the axis group.*)
 	END_STRUCT;
 
-	McComponentType : UDINT;
+	McTransformPositionParType : STRUCT
+		Component : McComponentType; (*Reference to the component (optional)*)
+	END_STRUCT;
 
-	 McProcessParamAdvParType : STRUCT
+	McProcessParamAdvParType : STRUCT
 		Name : STRING[250]; (*Name of the reference within the component which should be manipulated.*)
 	END_STRUCT;
 

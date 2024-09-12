@@ -1,6 +1,6 @@
 /* Automation Studio generated header file */
 /* Do not edit ! */
-/* McBase 5.24.1 */
+/* McBase 5.27.1 */
 
 #ifndef _MCBASE_
 #define _MCBASE_
@@ -9,7 +9,7 @@ extern "C"
 {
 #endif
 #ifndef _McBase_VERSION
-#define _McBase_VERSION 5.24.1
+#define _McBase_VERSION 5.27.1
 #endif
 
 #include <bur/plctypes.h>
@@ -230,7 +230,9 @@ typedef enum McCfgTypeEnum
 	mcCFG_LIMSET_ROT = 1412,
 	mcCFG_CAMLST = 1500,
 	mcCFG_PROC_PT_LST = 1600,
+	mcCFG_PROC_POINT = 1601,
 	mcCFG_TRK_PATH = 1700,
+	mcCFG_TRK_PATH_SCN = 1701,
 	mcCFG_PICK_CORE = 2100,
 	mcCFG_PICK_REG = 2110,
 	mcCFG_PICK_REG_SCN = 2111,
@@ -250,6 +252,7 @@ typedef enum McCfgTypeEnum
 	mcCFG_AX_FEAT_BRK = 10105,
 	mcCFG_AX_FEAT_MECH_DEV_COMP = 10106,
 	mcCFG_AX_FEAT_ACP_NETW_ERR_REAC = 10108,
+	mcCFG_AX_FEAT_ACP_CYC_DAT_PROC = 10112,
 	mcCFG_MOT_SYN = 10500,
 	mcCFG_MOT_INDUCT = 10501,
 	mcCFG_MOT_SYN_AMC = 10502,
@@ -382,6 +385,8 @@ typedef enum McCfgTypeEnum
 	mcCFG_SEC_COMP = 31301,
 	mcCFG_SEC_SUB = 31302,
 	mcCFG_SH_STEREO_TYP = 31400,
+	mcCFG_SH_JERK_FILT = 31401,
+	mcCFG_SH_STATE_TRANS = 31402,
 	mcCFG_SEG = 31500,
 	mcCFG_MS_CUS_STD = 50001,
 	mcCFG_MS_2AX_CNC_XY = 51201,
@@ -458,6 +463,11 @@ typedef enum McMMCLogSelUseSupSubcEEnum
 {	mcMMCLSUSSE_INACT = 0,
 	mcMMCLSUSSE_ACT = 1
 } McMMCLogSelUseSupSubcEEnum;
+
+typedef enum McMMCMcAcpDrvPLKCycPerParIDEnum
+{	mcMMCMPCPP_ONE = 1,
+	mcMMCMPCPP_TWO = 2
+} McMMCMcAcpDrvPLKCycPerParIDEnum;
 
 typedef enum McOHGCSOTypEnum
 {	mcOHGCSOT_CMPT = 0,
@@ -788,6 +798,12 @@ typedef struct McGetCoordSystemIdentParType
 {	struct McAxesGroupType* AxesGroup;
 } McGetCoordSystemIdentParType;
 
+typedef unsigned long McComponentType;
+
+typedef struct McTransformPositionParType
+{	McComponentType Component;
+} McTransformPositionParType;
+
 typedef struct McProcessParamAdvParType
 {	plcstring Name[251];
 } McProcessParamAdvParType;
@@ -906,9 +922,14 @@ typedef struct McMMCLogType
 {	struct McMMCLogSelType Selective;
 } McMMCLogType;
 
+typedef struct McMMCMcAcpDrvType
+{	enum McMMCMcAcpDrvPLKCycPerParIDEnum POWERLINKCyclesPerParID;
+} McMMCMcAcpDrvType;
+
 typedef struct McCfgMMCfgType
 {	struct McMMCProcType Processing;
 	struct McMMCLogType Logger;
+	struct McMMCMcAcpDrvType McAcpDrv;
 } McCfgMMCfgType;
 
 typedef struct McCfgTransXYZType
@@ -1100,6 +1121,17 @@ typedef struct McCfgFrmTblType
 {	struct McCfgUnboundedArrayType Row;
 } McCfgFrmTblType;
 
+typedef struct McDPTRowType
+{	unsigned short BaseParameterIndex;
+	double Value;
+	plcstring Unit[251];
+	plcstring Description[251];
+} McDPTRowType;
+
+typedef struct McCfgDynParTblType
+{	struct McCfgUnboundedArrayType Row;
+} McCfgDynParTblType;
+
 typedef struct McCfgLimPosType
 {	double LowerLimit;
 	double UpperLimit;
@@ -1256,6 +1288,10 @@ typedef struct McCfgProcPtLstType
 {	struct McCfgUnboundedArrayType ProcessPoints;
 } McCfgProcPtLstType;
 
+typedef struct McCfgProcPointType
+{	struct McPPLPtType ProcessPoint;
+} McCfgProcPointType;
+
 typedef struct McCfgExtLimRefType
 {	struct McCfgReferenceType LimitReference;
 } McCfgExtLimRefType;
@@ -1309,8 +1345,6 @@ typedef struct MC_BR_ProcessConfig
 	plcbit Error;
 } MC_BR_ProcessConfig_typ;
 
-typedef unsigned long McComponentType;
-
 typedef struct MC_BR_ProcessParam
 {
 	/* VAR_INPUT (analog) */
@@ -1350,6 +1384,26 @@ typedef struct MC_BR_GetCoordSystemIdent
 	plcbit Busy;
 	plcbit Error;
 } MC_BR_GetCoordSystemIdent_typ;
+
+typedef struct MC_BR_TransformPosition
+{
+	/* VAR_INPUT (analog) */
+	struct McFrameType Position;
+	unsigned long SourceCoordSystem;
+	unsigned long TargetCoordSystem;
+	struct McTransformPositionParType Parameter;
+	/* VAR_OUTPUT (analog) */
+	signed long ErrorID;
+	struct McFrameType Offset;
+	/* VAR (analog) */
+	struct McInternalType Internal;
+	/* VAR_INPUT (digital) */
+	plcbit Execute;
+	/* VAR_OUTPUT (digital) */
+	plcbit Done;
+	plcbit Busy;
+	plcbit Error;
+} MC_BR_TransformPosition_typ;
 
 typedef struct MC_BR_ReadErrorText
 {
@@ -1403,6 +1457,7 @@ typedef plcstring McCfgString250Type[251];
 _BUR_PUBLIC void MC_BR_ProcessConfig(struct MC_BR_ProcessConfig* inst);
 _BUR_PUBLIC void MC_BR_ProcessParam(struct MC_BR_ProcessParam* inst);
 _BUR_PUBLIC void MC_BR_GetCoordSystemIdent(struct MC_BR_GetCoordSystemIdent* inst);
+_BUR_PUBLIC void MC_BR_TransformPosition(struct MC_BR_TransformPosition* inst);
 _BUR_PUBLIC void MC_BR_ReadErrorText(struct MC_BR_ReadErrorText* inst);
 _BUR_PUBLIC void MC_BR_CheckComponentReference(struct MC_BR_CheckComponentReference* inst);
 

@@ -209,6 +209,11 @@ TYPE
 		mcACPAX_RECEIVE_CHANNEL_5 := 5 (*Select channel 5*)
 	);
 
+	McAcpAxHomingAddTorqLimParType : STRUCT
+		PositiveDirection : REAL; (*Positive torque limit value for homing to blocks. If '0.0' is specified, the value of 'TorqueLimit' is used for positive direction. [Nm]*)
+		NegativeDirection : REAL; (*Negative torque limit value for homing to blocks. If '0.0' is specified, the value of 'TorqueLimit' is used for negative direction. [Nm]*)
+	END_STRUCT;
+
    	McAcpAxHomingParType : STRUCT
         HomingMode : McHomingModeEnum; (*Mode for homing*)
 		Position : LREAL; (*Absolute position or homing offset when homing signal [Measurement units] occurs*)
@@ -225,6 +230,7 @@ TYPE
 		BlockDetectionPositionError : REAL; (*Lag error for block detection [Measurement units]*)
 		PositionErrorStopLimit : REAL; (*Lag error for canceling homing procedure [Measurement units]*)
 		RestorePositionVariableAddress : UDINT; (*Address of a remanent variable of type McAcpAxRestorePosType that is needed for "HomingMode" mcHOMING_RESTORE_POSITION*)
+		AdditionalTorqueLimit : McAcpAxHomingAddTorqLimParType; (*Additional, direction dependent torque limit values for homing to block*)
 	END_STRUCT;
 
 	McAcpAxProcessParIDType : STRUCT
