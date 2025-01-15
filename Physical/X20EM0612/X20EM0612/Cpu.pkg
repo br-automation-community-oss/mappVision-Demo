@@ -19,12 +19,12 @@
     <Object Type="Package">VC</Object>
   </Objects>
   <Configuration ModuleId="X20EM0612">
-    <AutomationRuntime Version="I4.93" />
+    <AutomationRuntime Version="M4.93" />
     <Build GccVersion="6.3.0" PostBuildStep="Powershell.exe -executionpolicy remotesigned -File &quot;$(WIN32_AS_PROJECT_PATH)/Logical/Vision/RouteInfo_Tool.ps1&quot; -ProjectPath &quot;$(WIN32_AS_PROJECT_PATH)&quot; -ProjectCfg &quot;$(AS_CONFIGURATION)&quot;" PreBuildStep="" />
     <DefaultTargetMemory Tasks="UserROM" />
     <Safety SafetyRelease="0.0" />
     <Transfer SavedOfflineInstallationFolder="" SavedPipDestinationFolder="" SavedRuntimeUtilityCenterPackagePath="" />
-    <Vc FirmwareVersion="V4.73.2" />
+    <Vc FirmwareVersion="V4.73.3" />
     <OnlineConfiguration Name="X20EM0612" DeviceType="TCPIP" DeviceParameters="/IF=tcpip /LOPO=11159 /SA=1" ConnectionParameters="/COMT=2500 /RT=1000 /AM=* /SDT=5 /DAIP=10.49.140.159 /REPO=11159 /ANSL=1 /PT=11169" Description="" />
   </Configuration>
 </Cpu>
