@@ -41,7 +41,7 @@ You can find details in the project in "revision.txt"
 - Update to mappVision 5.28
 - Added Deep OCR sample
 - Fixed height and width for crosshairs
-- 
+
 #### Version 5.26.3 (03.07.2024)
 - Fixed artefacts in main page image when no camera image was loaded
 - Use vision sensor resolution from config to account for cameras with higher resolution
