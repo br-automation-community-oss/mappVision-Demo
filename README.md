@@ -28,7 +28,7 @@ This vision sample contains a lot of functions that are not included in the mapp
 ## Requirements (current used versions)
 Should also work with newer and some older versions
 * Automation Studio 4.12
-* mapp 5.26
+* mapp 5.28
 * Automation Runtime I4.93
 
 Recommended task class is #8 with a 10ms cycle time. For the nettime and axis tasks use #1
@@ -37,6 +37,11 @@ Recommended task class is #8 with a 10ms cycle time. For the nettime and axis ta
 ## Revision History
 You can find details in the project in "revision.txt"
 
+#### Version 5.28 (15.01.2022)
+- Update to mappVision 5.28
+- Added Deep OCR sample
+- Fixed height and width for crosshairs
+- 
 #### Version 5.26.3 (03.07.2024)
 - Fixed artefacts in main page image when no camera image was loaded
 - Use vision sensor resolution from config to account for cameras with higher resolution
