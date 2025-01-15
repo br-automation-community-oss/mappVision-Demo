@@ -50,13 +50,20 @@ PROGRAM _CYCLIC
 	gVisionSensor[5].CFG.ComponentLink		:= gCameraOCR;
 	gVisionSensor[5].CFG.ResolutionWidth	:= 1280;
 	gVisionSensor[5].CFG.ResolutionHeight	:= 1024;
-	// Configuration for PixelCounter
-	gVisionSensor[6].CFG.VisionFunction		:= enumPixelCounter;
+	// Configuration for Deep OCR
+	gVisionSensor[6].CFG.VisionFunction		:= enumDOCR;
 	gVisionSensor[6].CFG.PowerlinkNode		:= 6;
-	gVisionSensor[6].CFG.DataStructure		:= ADR(gPixel);
-	gVisionSensor[6].CFG.ComponentLink		:= gCameraPxl;
+	gVisionSensor[6].CFG.DataStructure		:= ADR(gDOCR);
+	gVisionSensor[6].CFG.ComponentLink		:= gCameraDOCR;
 	gVisionSensor[6].CFG.ResolutionWidth	:= 1280;
 	gVisionSensor[6].CFG.ResolutionHeight	:= 1024;
+	// Configuration for PixelCounter
+	gVisionSensor[7].CFG.VisionFunction		:= enumPixelCounter;
+	gVisionSensor[7].CFG.PowerlinkNode		:= 7;
+	gVisionSensor[7].CFG.DataStructure		:= ADR(gPixel);
+	gVisionSensor[7].CFG.ComponentLink		:= gCameraPxl;
+	gVisionSensor[7].CFG.ResolutionWidth	:= 1280;
+	gVisionSensor[7].CFG.ResolutionHeight	:= 1024;
 
 	// -----------------------------------------------------------------------------------------------------------
 	// Lights configuration

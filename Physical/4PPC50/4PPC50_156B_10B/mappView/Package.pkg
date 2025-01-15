@@ -12,6 +12,7 @@
     <Object Type="File">Match.binding</Object>
     <Object Type="File">MT.binding</Object>
     <Object Type="File">OCR.binding</Object>
+    <Object Type="File">DOCR.binding</Object>
     <Object Type="File">Pixel.binding</Object>
     <Object Type="File">Lights.binding</Object>
     <Object Type="File">Nettime.binding</Object>

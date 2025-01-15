@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Content id="contentDOCR" height="518" width="1200" xmlns="http://www.br-automation.com/iat2015/contentDefinition/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:types="http://www.br-automation.com/iat2015/widgetTypes/v2">
+  <Widgets>
+    <Widget xsi:type="widgets.brease.Table" id="tabOCR" top="10" left="10" width="1180" height="350" zIndex="0">
+      <Widgets>
+        <Widget xsi:type="widgets.brease.TableItem" id="ItemNo" zIndex="0" columnWidth="50" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" text="No" />
+        <Widget xsi:type="widgets.brease.TableItem" id="itemData" zIndex="1" columnWidth="550" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" rowHeight="30" text="Text" />
+        <Widget xsi:type="widgets.brease.TableItem" id="itemConfidence" zIndex="2" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" text="Confidence" />
+        <Widget xsi:type="widgets.brease.TableItem" id="itemPosX" zIndex="4" columnWidth="90" format="{'metric':{'decimalPlaces':2,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':2,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':2,'minimumIntegerDigits':1}}" rowHeight="30" text="Position X" unit="{'metric':'http://www.br-automation.com/units|VI0','imperial':'http://www.br-automation.com/units|VI0','imperial-us':'http://www.br-automation.com/units|VI0'}" />
+        <Widget xsi:type="widgets.brease.TableItem" id="itemPosY" zIndex="5" columnWidth="100" format="{'metric':{'decimalPlaces':2,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':2,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':2,'minimumIntegerDigits':1}}" rowHeight="30" text="Position Y" unit="{'metric':'http://www.br-automation.com/units|VI0','imperial':'http://www.br-automation.com/units|VI0','imperial-us':'http://www.br-automation.com/units|VI0'}" />
+        <Widget xsi:type="widgets.brease.TableItem" id="itemOrientation" zIndex="6" columnWidth="100" format="{'metric':{'decimalPlaces':2,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':2,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':2,'minimumIntegerDigits':1}}" rowHeight="30" text="Orientation" unit="{'metric':'http://www.br-automation.com/units|VI0','imperial':'http://www.br-automation.com/units|VI0','imperial-us':'http://www.br-automation.com/units|VI0'}" />
+        <Widget xsi:type="widgets.brease.TableItem" id="itemDiscaredCharaters" zIndex="7" columnWidth="150" format="{'metric':{'decimalPlaces':2,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':2,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':2,'minimumIntegerDigits':1}}" rowHeight="30" text="Discarded Chars" unit="{'metric':'http://www.br-automation.com/units|VI0','imperial':'http://www.br-automation.com/units|VI0','imperial-us':'http://www.br-automation.com/units|VI0'}" />
+      </Widgets>
+    </Widget>
+    <Widget xsi:type="widgets.brease.Label" id="Label10" top="380" left="10" width="140" zIndex="1" text="Min Confidence" textAlign="right" fontSize="18px" />
+    <Widget xsi:type="widgets.brease.NumericInput" id="numMinConfidence" top="380" left="160" width="60" zIndex="2" format="{'metric':{'decimalPlaces':0,'minimumIntegerDigits':1},'imperial':{'decimalPlaces':1,'minimumIntegerDigits':1},'imperial-us':{'decimalPlaces':1,'minimumIntegerDigits':1}}" />
+  </Widgets>
+</Content>

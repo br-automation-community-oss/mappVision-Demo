@@ -2,33 +2,74 @@
 <?AutomationStudio FileVersion="4.9"?>
 <BR.AS.HardwareTopology>
   <TimeStamps>
-    <TimeStamp LogicalPath="X20CP1586.Hardware.hw" LastWriteTime="01/13/2021 15:27:26" />
+    <TimeStamp LogicalPath="X20EM0612.Hardware.hw" LastWriteTime="01/15/2025 09:34:36" />
   </TimeStamps>
   <Modules>
-    <Module Name="Blob" Type="VSS112Q22.041P-000" X="192" Y="399" />
-    <Module Name="Match" Type="VSS112Q22.041P-000" X="497" Y="399" />
-    <Module Name="OCR" Type="VSS112Q22.041P-000" X="596" Y="399" />
-    <Module Name="8V1010.50-2" Type="8V1010.50-2" X="1257" Y="399" />
-    <Module Name="8AC120.60-1" Type="8AC120.60-1" X="1271" Y="514.5" />
-    <Module Name="8AC114.60-2" Type="8AC114.60-2" X="1259.8" Y="514.5" />
-    <Module Name="Backlight1" Type="VSLB11Q00.54DP-000" X="819" Y="399" />
-    <Module Name="Backlight2" Type="VSLB11F00.54DP-000" X="958" Y="399" />
-    <Module Name="CodeReader" Type="VSS112Q22.041P-000" X="396" Y="399" />
-    <Module Name="Measurement" Type="VSS112Q22.041P-000" X="294" Y="399" />
-    <Module Name="X20CP1586" Type="X20CP1586" X="100" Y="100" />
-    <Module Name="Lightbar1" Type="VSLL11Q20.67AP-000" X="1105" Y="427" />
-    <Module Name="PixelCounter" Type="VSS112Q22.041P-000" X="694" Y="399" />
+    <Module Name="Blob" Type="VSC523R21.051P-000" X="192" Y="399" />
+    <Module Name="Match" Type="VSC523R21.051P-000" X="497" Y="399" />
+    <Module Name="OCR" Type="VSC523R21.051P-000" X="596" Y="399" />
+    <Module Name="8V1010.50-2" Type="8V1010.50-2" X="1444" Y="399" />
+    <Module Name="8AC120.60-1a" Type="8AC120.60-1" X="1469.2" Y="514.5" />
+    <Module Name="8AC120.60-1" Type="8AC120.60-1" X="1458" Y="514.5" />
+    <Module Name="8AC114.60-2" Type="8AC114.60-2" X="1446.8" Y="514.5" />
+    <Module Name="Backlight1" Type="VSLB11Q00.54DP-000" X="946" Y="399" />
+    <Module Name="Backlight2" Type="VSLB11F00.54DP-000" X="1097" Y="399" />
+    <Module Name="CodeReader" Type="VSC523R21.051P-000" X="396" Y="399" />
+    <Module Name="Measurement" Type="VSC523R21.051P-000" X="294" Y="399" />
+    <Module Name="Lightbar1" Type="VSLL11Q20.67AP-000" X="1281" Y="427" />
+    <Module Name="PixelCounter" Type="VSC523R21.051P-000" X="803" Y="399" />
+    <Module Name="X20EM0612" Type="X20EM0612" X="100" Y="100" />
+    <Module Name="DeepOCR" Type="VSC523R21.051P-000" X="700" Y="399" />
   </Modules>
   <Links>
-    <Link From="Blob" To="X20CP1586" FromPort="PLK1" ToPort="IF3" IsRoutedByUser="False">
+    <Link From="8AC114.60-2" To="Lightbar1" FromPort="PLK1" ToPort="PLK2" IsRoutedByUser="False">
+      <Point X="1452.9" Y="542.3" />
+      <Point X="1452.9" Y="542.3" />
+      <Point X="1443.9" Y="542.3" />
+      <Point X="1344" Y="542.3" />
+      <Point X="1344" Y="522" />
+      <Point X="1344" Y="517" />
+      <Point X="1344" Y="517" />
+    </Link>
+    <Link From="Backlight1" To="PixelCounter" FromPort="PLK1" ToPort="PLK2" IsRoutedByUser="False">
+      <Point X="964" Y="517" />
+      <Point X="964" Y="517" />
+      <Point X="964" Y="522" />
+      <Point X="964" Y="528" />
+      <Point X="866" Y="528" />
+      <Point X="866" Y="522" />
+      <Point X="866" Y="517" />
+      <Point X="866" Y="517" />
+    </Link>
+    <Link From="Backlight1" To="Backlight2" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="1009" Y="517" />
+      <Point X="1009" Y="517" />
+      <Point X="1009" Y="522" />
+      <Point X="1009" Y="535" />
+      <Point X="1115" Y="535" />
+      <Point X="1115" Y="522" />
+      <Point X="1115" Y="517" />
+      <Point X="1115" Y="517" />
+    </Link>
+    <Link From="Backlight2" To="Lightbar1" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="1160" Y="517" />
+      <Point X="1160" Y="517" />
+      <Point X="1160" Y="522" />
+      <Point X="1160" Y="535" />
+      <Point X="1299" Y="535" />
+      <Point X="1299" Y="522" />
+      <Point X="1299" Y="517" />
+      <Point X="1299" Y="517" />
+    </Link>
+    <Link From="Blob" To="X20EM0612" FromPort="PLK1" ToPort="IF3" IsRoutedByUser="False">
       <Point X="210" Y="517" />
       <Point X="210" Y="517" />
       <Point X="210" Y="522" />
       <Point X="210" Y="535" />
-      <Point X="156" Y="535" />
-      <Point X="156" Y="200" />
-      <Point X="156" Y="187" />
-      <Point X="156" Y="187" />
+      <Point X="136" Y="535" />
+      <Point X="136" Y="221" />
+      <Point X="136" Y="205" />
+      <Point X="136" Y="205" />
     </Link>
     <Link From="Blob" To="Measurement" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
       <Point X="255" Y="517" />
@@ -60,6 +101,26 @@
       <Point X="515" Y="517" />
       <Point X="515" Y="517" />
     </Link>
+    <Link From="DeepOCR" To="OCR" FromPort="PLK1" ToPort="PLK2" IsRoutedByUser="False">
+      <Point X="659" Y="517" />
+      <Point X="659" Y="517" />
+      <Point X="659" Y="522" />
+      <Point X="659" Y="535" />
+      <Point X="718" Y="535" />
+      <Point X="718" Y="522" />
+      <Point X="718" Y="517" />
+      <Point X="718" Y="517" />
+    </Link>
+    <Link From="DeepOCR" To="PixelCounter" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="821" Y="517" />
+      <Point X="821" Y="517" />
+      <Point X="821" Y="522" />
+      <Point X="821" Y="535" />
+      <Point X="763" Y="535" />
+      <Point X="763" Y="522" />
+      <Point X="763" Y="517" />
+      <Point X="763" Y="517" />
+    </Link>
     <Link From="Match" To="OCR" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
       <Point X="560" Y="517" />
       <Point X="560" Y="517" />
@@ -69,55 +130,6 @@
       <Point X="614" Y="522" />
       <Point X="614" Y="517" />
       <Point X="614" Y="517" />
-    </Link>
-    <Link From="8AC114.60-2" To="Lightbar1" FromPort="PLK1" ToPort="PLK2" IsRoutedByUser="False">
-      <Point X="1265.9" Y="542.3" />
-      <Point X="1265.9" Y="542.3" />
-      <Point X="1256.9" Y="542.3" />
-      <Point X="1168" Y="542.3" />
-      <Point X="1168" Y="522" />
-      <Point X="1168" Y="517" />
-      <Point X="1168" Y="517" />
-    </Link>
-    <Link From="Backlight1" To="Backlight2" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
-      <Point X="882" Y="517" />
-      <Point X="882" Y="517" />
-      <Point X="882" Y="522" />
-      <Point X="882" Y="535" />
-      <Point X="976" Y="535" />
-      <Point X="976" Y="522" />
-      <Point X="976" Y="517" />
-      <Point X="976" Y="517" />
-    </Link>
-    <Link From="Backlight2" To="Lightbar1" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
-      <Point X="1021" Y="517" />
-      <Point X="1021" Y="517" />
-      <Point X="1021" Y="522" />
-      <Point X="1021" Y="535" />
-      <Point X="1123" Y="535" />
-      <Point X="1123" Y="522" />
-      <Point X="1123" Y="517" />
-      <Point X="1123" Y="517" />
-    </Link>
-    <Link From="OCR" To="PixelCounter" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
-      <Point X="659" Y="517" />
-      <Point X="659" Y="517" />
-      <Point X="659" Y="522" />
-      <Point X="659" Y="535" />
-      <Point X="712" Y="535" />
-      <Point X="712" Y="522" />
-      <Point X="712" Y="517" />
-      <Point X="712" Y="517" />
-    </Link>
-    <Link From="PixelCounter" To="Backlight1" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
-      <Point X="757" Y="517" />
-      <Point X="757" Y="517" />
-      <Point X="757" Y="522" />
-      <Point X="757" Y="535" />
-      <Point X="837" Y="535" />
-      <Point X="837" Y="522" />
-      <Point X="837" Y="517" />
-      <Point X="837" Y="517" />
     </Link>
   </Links>
   <InfoElements />

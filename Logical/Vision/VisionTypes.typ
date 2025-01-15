@@ -81,6 +81,7 @@ TYPE
 		enumMatch,
 		enumMeasurement,
 		enumOCR,
+		enumDOCR,
 		enumPixelCounter
 		);
 END_TYPE
@@ -254,6 +255,15 @@ TYPE
 		GradingEnable : BOOL;
 		Text : ARRAY[1..MAX_NUM_RESULTS]OF STRING[50];
 		Grading : ARRAY[1..MAX_NUM_RESULTS]OF USINT;
+		PositionX : ARRAY[1..MAX_NUM_RESULTS]OF DINT;
+		PositionY : ARRAY[1..MAX_NUM_RESULTS]OF DINT;
+		Orientation : ARRAY[1..MAX_NUM_RESULTS]OF INT;
+	END_STRUCT;
+	typDOCRMain : 	STRUCT  (*OCR function structures*)
+		MinConfidence : USINT := 20;
+		Text : ARRAY[1..MAX_NUM_RESULTS]OF STRING[25];
+		MinConfidenceROI : ARRAY[1..MAX_NUM_RESULTS]OF USINT;
+		NumDiscardedCharacters : ARRAY[1..MAX_NUM_RESULTS]OF USINT;
 		PositionX : ARRAY[1..MAX_NUM_RESULTS]OF DINT;
 		PositionY : ARRAY[1..MAX_NUM_RESULTS]OF DINT;
 		Orientation : ARRAY[1..MAX_NUM_RESULTS]OF INT;

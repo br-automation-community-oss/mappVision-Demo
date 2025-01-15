@@ -13,6 +13,7 @@ PROGRAM _INIT
 	Match ACCESS ADR(tmpMatch);
 	MT ACCESS ADR(tmpMT);
 	OCR ACCESS ADR(tmpOCR);
+	DOCR ACCESS ADR(tmpDOCR);
 	Pixel ACCESS ADR(tmpPixel);
 	
 	// Map global structure to local reference
@@ -76,6 +77,7 @@ PROGRAM _CYCLIC
 			enumMatch:			Match ACCESS VisionSensor.CFG.DataStructure;
 			enumMeasurement:	MT ACCESS VisionSensor.CFG.DataStructure;
 			enumOCR:			OCR ACCESS VisionSensor.CFG.DataStructure;
+			enumDOCR:			DOCR ACCESS VisionSensor.CFG.DataStructure;
 			enumPixelCounter:	Pixel ACCESS VisionSensor.CFG.DataStructure;
 		END_CASE
 	ELSE
@@ -312,16 +314,20 @@ PROGRAM _CYCLIC
 						CrosshairOrientation := gMatch.Orientation[i];
 					enumCoderReader:
 						CrosshairPositionX := UDINT_TO_REAL(gCodeReader.PositionX[i])/UINT_TO_REAL(gVisionSensor[gSelectedSensor].CFG.ResolutionWidth)*1280;    
-						CrosshairPositionY := UDINT_TO_REAL(gCodeReader.PositionY[i])/UINT_TO_REAL(gVisionSensor[gSelectedSensor].CFG.ResolutionWidth)*1280;    
+						CrosshairPositionY := UDINT_TO_REAL(gCodeReader.PositionY[i])/UINT_TO_REAL(gVisionSensor[gSelectedSensor].CFG.ResolutionHeight)*1024;    
 						CrosshairOrientation := gCodeReader.Orientation[i];
 					enumOCR:
 						CrosshairPositionX := UDINT_TO_REAL(gOCR.PositionX[i])/UINT_TO_REAL(gVisionSensor[gSelectedSensor].CFG.ResolutionWidth)*1280;    
-						CrosshairPositionY := UDINT_TO_REAL(gOCR.PositionY[i])/UINT_TO_REAL(gVisionSensor[gSelectedSensor].CFG.ResolutionWidth)*1280;    
+						CrosshairPositionY := UDINT_TO_REAL(gOCR.PositionY[i])/UINT_TO_REAL(gVisionSensor[gSelectedSensor].CFG.ResolutionHeight)*1024;    
+						CrosshairOrientation := gOCR.Orientation[i];
+					enumDOCR:
+						CrosshairPositionX := UDINT_TO_REAL(gDOCR.PositionX[i])/UINT_TO_REAL(gVisionSensor[gSelectedSensor].CFG.ResolutionWidth)*1280;    
+						CrosshairPositionY := UDINT_TO_REAL(gDOCR.PositionY[i])/UINT_TO_REAL(gVisionSensor[gSelectedSensor].CFG.ResolutionHeight)*1024;    
 						CrosshairOrientation := gOCR.Orientation[i];
 					enumMeasurement:
 						IF(gMT.UseResultAsXY = TRUE) THEN
 							CrosshairPositionX := UDINT_TO_REAL(gMT.Result[i])/10/UINT_TO_REAL(gVisionSensor[gSelectedSensor].CFG.ResolutionWidth)*1280;    
-							CrosshairPositionY := UDINT_TO_REAL(gMT.Result[i+1])/10/UINT_TO_REAL(gVisionSensor[gSelectedSensor].CFG.ResolutionWidth)*1280;
+							CrosshairPositionY := UDINT_TO_REAL(gMT.Result[i+1])/10/UINT_TO_REAL(gVisionSensor[gSelectedSensor].CFG.ResolutionHeight)*1024;
 							i := i + 1;
 						END_IF
 				END_CASE

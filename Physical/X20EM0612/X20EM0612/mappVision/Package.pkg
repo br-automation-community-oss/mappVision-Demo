@@ -9,12 +9,14 @@
     <Object Type="File" Reference="true">\Physical\4PPC50\4PPC50_156B_10B\mappVision\viAppMat.visionapplication</Object>
     <Object Type="File" Reference="true">\Physical\4PPC50\4PPC50_156B_10B\mappVision\viAppMT.visionapplication</Object>
     <Object Type="File" Reference="true">\Physical\4PPC50\4PPC50_156B_10B\mappVision\viAppOCR.visionapplication</Object>
+    <Object Type="File" Reference="true">\Physical\4PPC50\4PPC50_156B_10B\mappVision\viAppDOCR.visionapplication</Object>
     <Object Type="File" Reference="true">\Physical\4PPC50\4PPC50_156B_10B\mappVision\viAppPixel.visionapplication</Object>
     <Object Type="File" Reference="true">\Physical\4PPC50\4PPC50_156B_10B\mappVision\viCompBlob.visioncomponent</Object>
     <Object Type="File" Reference="true">\Physical\4PPC50\4PPC50_156B_10B\mappVision\viCompCR.visioncomponent</Object>
     <Object Type="File" Reference="true">\Physical\4PPC50\4PPC50_156B_10B\mappVision\viCompMat.visioncomponent</Object>
     <Object Type="File" Reference="true">\Physical\4PPC50\4PPC50_156B_10B\mappVision\viCompMT.visioncomponent</Object>
     <Object Type="File" Reference="true">\Physical\4PPC50\4PPC50_156B_10B\mappVision\viCompOCR.visioncomponent</Object>
+    <Object Type="File" Reference="true">\Physical\4PPC50\4PPC50_156B_10B\mappVision\viCompDOCR.visioncomponent</Object>
     <Object Type="File" Reference="true">\Physical\4PPC50\4PPC50_156B_10B\mappVision\viCompPxl.visioncomponent</Object>
   </Objects>
 </Package>

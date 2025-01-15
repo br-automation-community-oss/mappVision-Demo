@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <?AutomationStudio FileVersion="4.9"?>
-<OpcUaSource FileVersion="9" ArVersion="I4.93">
+<OpcUaSource FileVersion="9" ArVersion="M4.93">
   <Aliases>
     <ACLAliases>
       <ACL Id="1">
@@ -143,6 +143,14 @@
           <Variable Name="SvgTransformation" RecursiveEnable="2" />
           <Variable Name="SvgContent" RecursiveEnable="2" />
           <Variable Name="SvgVisible" RecursiveEnable="2" />
+        </Variable>
+        <Variable Name="DOCR" RecursiveEnable="2">
+          <Variable Name="Text" RecursiveEnable="2" />
+          <Variable Name="MinConfidenceROI" RecursiveEnable="2" />
+          <Variable Name="NumDiscardedCharacters" RecursiveEnable="2" />
+          <Variable Name="PositionX" RecursiveEnable="2" />
+          <Variable Name="PositionY" RecursiveEnable="2" />
+          <Variable Name="Orientation" RecursiveEnable="2" />
         </Variable>
       </Task>
     </Module>

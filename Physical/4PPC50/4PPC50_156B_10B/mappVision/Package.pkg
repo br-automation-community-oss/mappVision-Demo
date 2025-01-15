@@ -9,12 +9,14 @@
     <Object Type="File">viAppMat.visionapplication</Object>
     <Object Type="File">viAppMT.visionapplication</Object>
     <Object Type="File">viAppOCR.visionapplication</Object>
+    <Object Type="File">viAppDOCR.visionapplication</Object>
     <Object Type="File">viAppPixel.visionapplication</Object>
     <Object Type="File">viCompBlob.visioncomponent</Object>
     <Object Type="File">viCompCR.visioncomponent</Object>
     <Object Type="File">viCompMat.visioncomponent</Object>
     <Object Type="File">viCompMT.visioncomponent</Object>
     <Object Type="File">viCompOCR.visioncomponent</Object>
+    <Object Type="File">viCompDOCR.visioncomponent</Object>
     <Object Type="File">viCompPxl.visioncomponent</Object>
   </Objects>
 </Package>

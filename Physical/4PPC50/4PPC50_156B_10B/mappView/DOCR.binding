@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BindingsSet xmlns="http://www.br-automation.com/iat2015/binding/engineering/v2" xmlns:be="http://www.br-automation.com/iat2015/bindingListEmbedded/engineering/v2" xmlns:bt="http://www.br-automation.com/iat2015/bindingListTypes/engineering/v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" id="DOCR_binding">
+	<Bindings>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Vi_visu:visTableNo" attribute="node" />
+			<Target xsi:type="brease" contentRefId="contentDOCR" widgetRefId="ItemNo" attribute="node" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Vi_visu:DOCR.Text" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentDOCR" widgetRefId="itemData" attribute="stringValue" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Vi_visu:DOCR.PositionX" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentDOCR" widgetRefId="itemPosX" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Vi_visu:DOCR.PositionY" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentDOCR" widgetRefId="itemPosY" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Vi_visu:DOCR.MinConfidenceROI" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentDOCR" widgetRefId="itemConfidence" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Vi_visu:DOCR.NumDiscardedCharacters" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentDOCR" widgetRefId="itemDiscaredCharaters" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Vi_visu:DOCR.Orientation" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentDOCR" widgetRefId="itemOrientation" attribute="value" />
+		</Binding>
+		<Binding mode="twoWay">
+			<Source xsi:type="opcUa" refId="::Vi_visu:DOCR.MinConfidence" attribute="value" />
+			<Target xsi:type="brease" contentRefId="contentDOCR" widgetRefId="numMinConfidence" attribute="value" />
+		</Binding>
+	</Bindings>
+</BindingsSet>
