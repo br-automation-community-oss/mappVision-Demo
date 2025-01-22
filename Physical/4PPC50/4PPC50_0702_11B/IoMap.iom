@@ -1,6 +1,5 @@
 VAR_CONFIG
 	Cyclic#1.::NettimeCurrent_us AT %ID."4PPC50_0702_11B".IF1.NettimeSoC;
-	Cyclic#1.::NettimeCurrent_us AT %ID."X20CP0483".IF3.NettimeSoC;
 	Cyclic#1.::NettimeCurrent_us AT %ID."X20EM0612".IF3.NettimeSoC;
 	Cyclic#1.::gVisionSensor[1].HW.Connected AT %IX."Blob".ModuleOk;
 	Cyclic#1.::gVisionSensor[1].HW.SerialNumber AT %ID."Blob".SerialNumber;

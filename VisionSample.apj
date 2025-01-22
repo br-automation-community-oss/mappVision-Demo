@@ -13,5 +13,6 @@
     <mappMotion McAcpDrv="5.27.1" McAcpSim="5.27.1" McAcpSys="5.27.1" McDriveLog="5.27.1" Version="5.27.1" />
     <mappView Version="5.24.4" />
     <mappVision Version="5.28.0" />
+    <OpcUaFx FxPtpB="1.0.0" PubSub="1.1.0" Version="1.2.0" />
   </TechnologyPackages>
 </Project>
