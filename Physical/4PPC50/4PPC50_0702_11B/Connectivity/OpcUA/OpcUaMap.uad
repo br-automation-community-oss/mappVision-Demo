@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?AutomationStudio FileVersion="4.9"?>
+<OpcUaSource FileVersion="9" ArVersion="M4.93">
+  <Aliases>
+    <ACLAliases>
+      <ACL Id="1">
+        <ACE RoleName="Administrators" Access="0x017F" />
+        <ACE RoleName="Everyone" Access="0x015F" />
+      </ACL>
+      <ACL Id="2">
+        <ACE RoleName="Everyone" Access="0x01FF" />
+        <ACE RoleName="Administrators" Access="0x01FF" />
+      </ACL>
+    </ACLAliases>
+    <EURangeViolationAliases />
+    <EURangesAliases>
+      <EURanges Id="2">
+        <EURange>
+          <Low ValueProvider="Const">1</Low>
+          <High ValueProvider="Const">20</High>
+        </EURange>
+      </EURanges>
+      <EURanges Id="3">
+        <EURange>
+          <Low ValueProvider="Const">0</Low>
+          <High ValueProvider="Const">5000</High>
+        </EURange>
+      </EURanges>
+    </EURangesAliases>
+    <EngineeringUnitAliases>
+      <EngineeringUnit Id="2" UnitId="5654834" NameSpaceUri="http://www.br-automation.com/units" Name="Pixels100" Symbol="px" />
+    </EngineeringUnitAliases>
+  </Aliases>
+  <DefaultView AclId="2">
+    <Module Name="&lt;Default&gt;">
+      <GlobalVariables Name="Global Variables">
+        <Variable Name="gVisionImage" RecursiveEnable="1">
+          <Variable Name="DAT">
+            <Variable Name="ImagesList" RecursiveEnable="2" />
+          </Variable>
+        </Variable>
+        <Variable Name="gVisionLight" RecursiveEnable="1" />
+        <Variable Name="gVisionNettime" RecursiveEnable="1" />
+        <Variable Name="gVisionSensor" RecursiveEnable="1" />
+        <Variable Name="gSelectedLight" />
+        <Variable Name="gSelectedSensor" />
+      </GlobalVariables>
+      <Task Name="Vi_main" />
+      <Task Name="Vi_image">
+        <Variable Name="visCameraImage" />
+      </Task>
+      <Task Name="Vi_nettime">
+        <Variable Name="PowerlinkCycle_us" />
+        <Variable Name="TriggerPosDelta" />
+        <Variable Name="TriggerTimeDelta_us" />
+      </Task>
+      <Task Name="YourTask" />
+      <Task Name="Axis">
+        <Variable Name="AxisAcceleration" />
+        <Variable Name="AxisVelocity" />
+        <Variable Name="cmdAxisHome" />
+        <Variable Name="cmdAxisMoveAbs" />
+        <Variable Name="cmdAxisPower" />
+        <Variable Name="cmdAxisRun" />
+        <Variable Name="MpAxisBasic_0" RecursiveEnable="1" />
+        <Variable Name="cmdAxisErrorReset" />
+      </Task>
+      <Task Name="Vi_visu">
+        <Variable Name="visCameraStatus" />
+        <Variable Name="visCodeTypePresentDropDownValues" />
+        <Variable Name="visEnableRepetitive" />
+        <Variable Name="visEnableSetup" />
+        <Variable Name="visImageTrigger" />
+        <Variable Name="VisionSensor" RecursiveEnable="1" />
+        <Variable Name="visRepetitiveMode" />
+        <Variable Name="visSelectedCodeTypeDetected" />
+        <Variable Name="visSelectedFlashSegment" RecursiveEnable="1" />
+        <Variable Name="visTableNo" />
+        <Variable Name="Blob" RecursiveEnable="1">
+          <Variable Name="ModelNumber" RecursiveEnable="1" />
+          <Variable Name="Clipped" RecursiveEnable="1" />
+          <Variable Name="Area" RecursiveEnable="1" EngineeringUnitId="2" />
+          <Variable Name="PositionX" RecursiveEnable="1" EngineeringUnitId="2" />
+          <Variable Name="PositionY" RecursiveEnable="1" EngineeringUnitId="2" />
+          <Variable Name="Orientation" RecursiveEnable="1" EngineeringUnitId="2" />
+          <Variable Name="MeanGrayValue" RecursiveEnable="1" />
+          <Variable Name="Length" RecursiveEnable="1" EngineeringUnitId="2" />
+          <Variable Name="Width" RecursiveEnable="1" EngineeringUnitId="2" />
+        </Variable>
+        <Variable Name="CodeReader" RecursiveEnable="1">
+          <Variable Name="BarcodeText" RecursiveEnable="1" />
+          <Variable Name="BarcodeType" RecursiveEnable="1" />
+          <Variable Name="PositionX" RecursiveEnable="1" EngineeringUnitId="2" />
+          <Variable Name="PositionY" RecursiveEnable="1" EngineeringUnitId="2" />
+          <Variable Name="Orientation" RecursiveEnable="1" EngineeringUnitId="2" />
+          <Variable Name="Grading" RecursiveEnable="1" />
+          <Variable Name="EnhancedGrading" RecursiveEnable="1" />
+        </Variable>
+        <Variable Name="Match" RecursiveEnable="1">
+          <Variable Name="ModelNumber" RecursiveEnable="1" />
+          <Variable Name="Score" RecursiveEnable="1" />
+          <Variable Name="PositionX" RecursiveEnable="1" EngineeringUnitId="2" />
+          <Variable Name="PositionY" RecursiveEnable="1" EngineeringUnitId="2" />
+          <Variable Name="Orientation" RecursiveEnable="1" EngineeringUnitId="2" />
+          <Variable Name="Scale" RecursiveEnable="1" />
+          <Variable Name="RotCenterX" RecursiveEnable="1" EngineeringUnitId="2" />
+          <Variable Name="RotCenterY" RecursiveEnable="1" EngineeringUnitId="2" />
+        </Variable>
+        <Variable Name="MT" RecursiveEnable="1">
+          <Variable Name="Result" RecursiveEnable="1" />
+        </Variable>
+        <Variable Name="OCR" RecursiveEnable="1">
+          <Variable Name="Text" RecursiveEnable="1" />
+          <Variable Name="Grading" RecursiveEnable="1" />
+          <Variable Name="PositionX" RecursiveEnable="1" EngineeringUnitId="2" />
+          <Variable Name="PositionY" RecursiveEnable="1" EngineeringUnitId="2" />
+          <Variable Name="Orientation" RecursiveEnable="1" EngineeringUnitId="2" />
+        </Variable>
+        <Variable Name="VisionLight" RecursiveEnable="1" />
+        <Variable Name="visLightsEnableCommand" />
+        <Variable Name="visLightsFlashColor" />
+        <Variable Name="visLightsReset" />
+        <Variable Name="visLightsTrigger" />
+        <Variable Name="visSensorEnableCommand" />
+        <Variable Name="visSensorFlashColor" />
+        <Variable Name="visEnableLightBarValues" />
+        <Variable Name="Pixel" RecursiveEnable="1">
+          <Variable Name="ModelNumber" RecursiveEnable="1" />
+          <Variable Name="NumPixels" RecursiveEnable="1" />
+          <Variable Name="MinGray" RecursiveEnable="1" />
+          <Variable Name="MaxGray" RecursiveEnable="1" />
+          <Variable Name="MeanGray" RecursiveEnable="1" />
+          <Variable Name="DeviationGray" RecursiveEnable="1" />
+          <Variable Name="MedianGray" RecursiveEnable="1" />
+          <Variable Name="ModelArea" RecursiveEnable="1" EngineeringUnitId="2" />
+          <Variable Name="NumConnectedComponents" RecursiveEnable="1" />
+          <Variable Name="PositionX" RecursiveEnable="1" EngineeringUnitId="2" />
+          <Variable Name="PositionY" RecursiveEnable="1" EngineeringUnitId="2" />
+        </Variable>
+        <Variable Name="visSelectedCodeType" />
+        <Variable Name="visSelectedParameterMode" />
+        <Variable Name="visCrossHair" RecursiveEnable="2">
+          <Variable Name="SvgTransformation" RecursiveEnable="2" />
+          <Variable Name="SvgContent" RecursiveEnable="2" />
+          <Variable Name="SvgVisible" RecursiveEnable="2" />
+        </Variable>
+        <Variable Name="DOCR" RecursiveEnable="2">
+          <Variable Name="Text" RecursiveEnable="2" />
+          <Variable Name="MinConfidenceROI" RecursiveEnable="2" />
+          <Variable Name="NumDiscardedCharacters" RecursiveEnable="2" />
+          <Variable Name="PositionX" RecursiveEnable="2" />
+          <Variable Name="PositionY" RecursiveEnable="2" />
+          <Variable Name="Orientation" RecursiveEnable="2" />
+        </Variable>
+      </Task>
+    </Module>
+  </DefaultView>
+</OpcUaSource>
