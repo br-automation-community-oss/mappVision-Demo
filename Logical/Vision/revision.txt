@@ -1,3 +1,9 @@
+Version 5.28.1 (22.01.2022)
+- Changed hardware to smaller C50
+- Removed smaller X20CPU
+- Changed ACOPOS single to Mirco
+- Make visulization fit new panel size
+
 Version 5.28 (15.01.2022)
 - Update to mappVision 5.28
 - Added Deep OCR sample

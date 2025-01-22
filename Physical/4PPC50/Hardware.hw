@@ -5,7 +5,6 @@
     <Connector Name="IF1">
       <Parameter ID="MtuSize" Value="1500" />
       <Parameter ID="DNAConfiguration" Value="manual" />
-      <Parameter ID="CycleTime" Value="4000" />
       <Parameter ID="InternetAddress" Value="192.168.200.240" />
       <Parameter ID="SubnetMask" Value="255.255.255.0" />
     </Connector>
@@ -29,7 +28,7 @@
     <Parameter ID="TimerDeviceType" Value="EPLX2X" />
     <Parameter ID="TimerDevice" Value="4PPC50_0702_11B.IF1" />
     <Parameter ID="TaskClassIdleTime" Value="4000" />
-    <Parameter ID="Cyclic1Duration" Value="4000" />
+    <Parameter ID="Cyclic1Duration" Value="2000" />
     <Parameter ID="Cyclic1Tolerance" Value="4000" />
     <Parameter ID="Cyclic2Duration" Value="20000" />
     <Parameter ID="Cyclic2Tolerance" Value="20000" />
