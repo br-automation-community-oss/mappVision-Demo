@@ -37,6 +37,12 @@ Recommended task class is #8 with a 10ms cycle time. For the nettime and axis ta
 ## Revision History
 You can find details in the project in "revision.txt"
 
+#### Version 5.28.1 (22.01.2022)
+- Changed hardware to smaller C50
+- Removed smaller X20CPU
+- Changed ACOPOS single to Mirco
+- Make visulization fit new panel size
+
 #### Version 5.28 (15.01.2022)
 - Update to mappVision 5.28
 - Added Deep OCR sample
