@@ -31,11 +31,6 @@
         <Property ID="ChannelID" Value="Timeout" />
       </Group>
     </Group>
-    <Group ID="ImageAcquisition">
-      <Group ID="Preprocessing">
-        <Selector ID="ShapeFromShading" Value="on" />
-      </Group>
-    </Group>
     <Group ID="VisionFunctionSet">
       <Group ID="VisionProgramSettings">
         <Property ID="CompilerOption" Value="0" />

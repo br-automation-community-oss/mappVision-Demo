@@ -2,16 +2,12 @@
 <?AutomationStudio FileVersion="4.9"?>
 <BR.AS.HardwareTopology>
   <TimeStamps>
-    <TimeStamp LogicalPath="X20EM0612.Hardware.hw" LastWriteTime="01/15/2025 09:34:36" />
+    <TimeStamp LogicalPath="X20EM0612.Hardware.hw" LastWriteTime="01/22/2025 11:44:10" />
   </TimeStamps>
   <Modules>
     <Module Name="Blob" Type="VSC523R21.051P-000" X="192" Y="399" />
     <Module Name="Match" Type="VSC523R21.051P-000" X="497" Y="399" />
     <Module Name="OCR" Type="VSC523R21.051P-000" X="596" Y="399" />
-    <Module Name="8V1010.50-2" Type="8V1010.50-2" X="1444" Y="399" />
-    <Module Name="8AC120.60-1a" Type="8AC120.60-1" X="1469.2" Y="514.5" />
-    <Module Name="8AC120.60-1" Type="8AC120.60-1" X="1458" Y="514.5" />
-    <Module Name="8AC114.60-2" Type="8AC114.60-2" X="1446.8" Y="514.5" />
     <Module Name="Backlight1" Type="VSLB11Q00.54DP-000" X="946" Y="399" />
     <Module Name="Backlight2" Type="VSLB11F00.54DP-000" X="1097" Y="399" />
     <Module Name="CodeReader" Type="VSC523R21.051P-000" X="396" Y="399" />
@@ -20,17 +16,9 @@
     <Module Name="PixelCounter" Type="VSC523R21.051P-000" X="803" Y="399" />
     <Module Name="X20EM0612" Type="X20EM0612" X="100" Y="100" />
     <Module Name="DeepOCR" Type="VSC523R21.051P-000" X="700" Y="399" />
+    <Module Name="80VD100PD.C000-01" Type="80VD100PD.C000-01" X="1474" Y="399" />
   </Modules>
   <Links>
-    <Link From="8AC114.60-2" To="Lightbar1" FromPort="PLK1" ToPort="PLK2" IsRoutedByUser="False">
-      <Point X="1452.9" Y="542.3" />
-      <Point X="1452.9" Y="542.3" />
-      <Point X="1443.9" Y="542.3" />
-      <Point X="1344" Y="542.3" />
-      <Point X="1344" Y="522" />
-      <Point X="1344" Y="517" />
-      <Point X="1344" Y="517" />
-    </Link>
     <Link From="Backlight1" To="PixelCounter" FromPort="PLK1" ToPort="PLK2" IsRoutedByUser="False">
       <Point X="964" Y="517" />
       <Point X="964" Y="517" />
@@ -130,6 +118,17 @@
       <Point X="614" Y="522" />
       <Point X="614" Y="517" />
       <Point X="614" Y="517" />
+    </Link>
+    <Link From="Lightbar1" To="80VD100PD.C000-01" FromPort="PLK2" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="1344" Y="517" />
+      <Point X="1344" Y="517" />
+      <Point X="1344" Y="522" />
+      <Point X="1344" Y="545" />
+      <Point X="1545" Y="545" />
+      <Point X="1545" Y="458" />
+      <Point X="1532" Y="458" />
+      <Point X="1513" Y="458" />
+      <Point X="1513" Y="473" />
     </Link>
   </Links>
   <InfoElements />

@@ -2,13 +2,9 @@
 <?AutomationStudio FileVersion="4.9"?>
 <BR.AS.HardwareTopology>
   <TimeStamps>
-    <TimeStamp LogicalPath="4PPC50.Hardware.hw" LastWriteTime="01/22/2025 08:14:40" />
+    <TimeStamp LogicalPath="4PPC50.Hardware.hw" LastWriteTime="01/22/2025 10:41:42" />
   </TimeStamps>
   <Modules>
-    <Module Name="8V1010.50-2" Type="8V1010.50-2" X="1672" Y="339" />
-    <Module Name="8AC120.60-1a" Type="8AC120.60-1" X="1697.2" Y="454.5" />
-    <Module Name="8AC120.60-1" Type="8AC120.60-1" X="1686" Y="454.5" />
-    <Module Name="8AC114.60-2" Type="8AC114.60-2" X="1674.8" Y="454.5" />
     <Module Name="Backlight1" Type="VSLB11Q00.54DP-000" X="1199" Y="339" />
     <Module Name="Backlight2" Type="VSLB11F00.54DP-000" X="1334" Y="339" />
     <Module Name="Blob" Type="VSC523R21.051P-000" X="389" Y="339" />
@@ -20,16 +16,29 @@
     <Module Name="PixelCounter" Type="VSC523R21.051P-000" X="1072" Y="339" />
     <Module Name="DeepOCR" Type="VSC523R21.051P-000" X="947" Y="339" />
     <Module Name="4PPC50_0702_11B" Type="4PPC50.0702-11B" X="85" Y="85" />
+    <Module Name="80VD100PD.C000-01" Type="80VD100PD.C000-01" X="1688" Y="339" />
   </Modules>
   <Links>
-    <Link From="8AC114.60-2" To="Lightbar1" FromPort="PLK1" ToPort="PLK2" IsRoutedByUser="False">
-      <Point X="1680.9" Y="482.3" />
-      <Point X="1680.9" Y="482.3" />
-      <Point X="1671.9" Y="482.3" />
-      <Point X="1561" Y="482.3" />
+    <Link From="4PPC50_0702_11B" To="Blob" FromPort="IF1" ToPort="PLK1" IsRoutedByUser="False">
+      <Point X="117.95" Y="187" />
+      <Point X="117.95" Y="187" />
+      <Point X="117.95" Y="192" />
+      <Point X="117.95" Y="475" />
+      <Point X="407" Y="475" />
+      <Point X="407" Y="462" />
+      <Point X="407" Y="457" />
+      <Point X="407" Y="457" />
+    </Link>
+    <Link From="80VD100PD.C000-01" To="Lightbar1" FromPort="PLK1" ToPort="PLK2" IsRoutedByUser="False">
+      <Point X="1561" Y="457" />
+      <Point X="1561" Y="457" />
       <Point X="1561" Y="462" />
-      <Point X="1561" Y="457" />
-      <Point X="1561" Y="457" />
+      <Point X="1561" Y="485" />
+      <Point X="1755" Y="485" />
+      <Point X="1755" Y="398" />
+      <Point X="1746" Y="398" />
+      <Point X="1727" Y="398" />
+      <Point X="1727" Y="413" />
     </Link>
     <Link From="Backlight1" To="PixelCounter" FromPort="PLK1" ToPort="PLK2" IsRoutedByUser="False">
       <Point X="1217" Y="457" />
@@ -120,16 +129,6 @@
       <Point X="838.8" Y="462.3" />
       <Point X="838.8" Y="457.3" />
       <Point X="838.8" Y="457.3" />
-    </Link>
-    <Link From="4PPC50_0702_11B" To="Blob" FromPort="IF1" ToPort="PLK1" IsRoutedByUser="False">
-      <Point X="117.95" Y="187" />
-      <Point X="117.95" Y="187" />
-      <Point X="117.95" Y="192" />
-      <Point X="117.95" Y="475" />
-      <Point X="407" Y="475" />
-      <Point X="407" Y="462" />
-      <Point X="407" Y="457" />
-      <Point X="407" Y="457" />
     </Link>
   </Links>
   <InfoElements />

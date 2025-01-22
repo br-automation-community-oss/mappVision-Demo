@@ -2,8 +2,11 @@
 // Motion sample for using nettime
 // --------------------------------------------------------------------------------------------------------------------
 PROGRAM _INIT
+	gAxis_1;
+	gAxis_2;
+	
 	MpAxisBasic_0.Enable			:= TRUE;
-	MpAxisBasic_0.MpLink			:= ADR(gAxis_1);
+	MpAxisBasic_0.MpLink			:= ADR(gAxis_2);
 	MpAxisBasic_0.Parameters		:= ADR(MpAxisBasicPar_0);
 	MpAxisBasic_0();
 	MpAxisBasicPar_0.Homing.Mode	:= mcHOMING_DEFAULT;
