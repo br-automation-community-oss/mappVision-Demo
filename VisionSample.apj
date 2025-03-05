@@ -9,10 +9,10 @@
   <Variables DefaultInitValue="0" DefaultRetain="false" DefaultVolatile="true" />
   <TechnologyPackages>
     <mapp Version="5.24.3" />
-    <mappCockpit Version="5.24.3" />
+    <mappCockpit Version="5.24.4" />
     <mappMotion McAcpDrv="5.27.1" McAcpSim="5.27.1" McAcpSys="5.27.1" McDriveLog="5.27.1" Version="5.27.1" />
     <mappView Version="5.24.4" />
-    <mappVision Version="5.28.0" />
+    <mappVision Version="5.28.1" />
     <OpcUaFx FxPtpB="1.0.0" PubSub="1.1.0" Version="1.2.0" />
   </TechnologyPackages>
 </Project>
