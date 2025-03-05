@@ -353,7 +353,13 @@ PROGRAM _CYCLIC
 		// -----------------------------------------------------------------------------------------------------------
 		VISTEP_REQUEST3:		
 			brsmemset(ADR(visCameraImage), 0, SIZEOF(visCameraImage));
-			visCameraImage := '<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="1280px" height="1024px" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="nonzero" clip-rule="evenodd" viewBox="0 0 ';	
+			visCameraImage := '<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="';	
+			brsitoa(IMAGE_WIDTH, ADR(tmpStr));
+			brsstrcat(ADR(visCameraImage), ADR(tmpStr));
+			brsstrcat(ADR(visCameraImage), ADR('px" height="'));
+			brsitoa(IMAGE_HEIGHT, ADR(tmpStr));
+			brsstrcat(ADR(visCameraImage), ADR(tmpStr));
+			brsstrcat(ADR(visCameraImage), ADR('px" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="nonzero" clip-rule="evenodd" viewBox="0 0 '));
 			brsitoa(gVisionImage.CFG.ImageWidth, ADR(tmpStr));
 			brsstrcat(ADR(visCameraImage), ADR(tmpStr));
 			brsstrcat(ADR(visCameraImage), ADR(' '));

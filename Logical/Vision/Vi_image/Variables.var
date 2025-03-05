@@ -5,6 +5,8 @@ VAR CONSTANT
 END_VAR
 VAR
 	IMAGE_QUALITY : USINT := 50;
+	IMAGE_WIDTH : UINT := 640; (*Image width of the SVG image in mappView*)
+	IMAGE_HEIGHT : UINT := 512; (*Image height of the SVG image in mappView*)
 END_VAR
 (**)
 VAR
