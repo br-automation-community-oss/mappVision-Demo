@@ -8,7 +8,7 @@
 ## Introduction
 This is a demo application for B&R vision camera. It is developed and maintained by vision enthusiasts and is not and official B&R product. For a detailed description see this [**documentation**](Logical/Documentation/Vision%20Demo%20Application.pdf). 
 
-**Note:** A basic version of this demo can be found [**here**](https://github.com/br-automation-com/mappVision-Demo/tree/basic)
+**Note:** A basic version of this demo can be found [**here**](https://github.com/br-automation-community/mappVision-Demo/tree/basic)
 
 **Note:** For better alignment between the index number and IO names most arrays start at index 1 (not 0). This can cause issues with C Task since these tasks do not support arrays starting at index 1. Most arrays can be redefined starting with 0 without any issues from a code perspective but it will cause an empty line in the mappView result tables.
 
